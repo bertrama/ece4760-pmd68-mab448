@@ -24,6 +24,13 @@
 #include "adc.h"
 
 /**
+ * Get samples from specified ADC chip
+ */
+void sample_adc(uint8_t * result_buffer, ) {
+	;
+}
+
+/**
  * Initilize the ATMega SPI module + ADCs.
  *
  * The maximum serial clock frequency is 2.1 MHz
@@ -31,5 +38,7 @@
 void adc_init(void) {
 	// Initialize SPI module
 	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0); // Assuming 16MHz clock, use divide by 16
+
+	// Get calibration values
 }
 
