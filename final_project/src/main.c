@@ -23,6 +23,11 @@
 #include <avr/io.h>
 
 int main(void) {
+	// initialize ADCs
+	adc_init();
+
+	while(1);
+
 	return 0;
 }
 

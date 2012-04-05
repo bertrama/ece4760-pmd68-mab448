@@ -23,7 +23,7 @@ CFLAGS = -Wall -Os -mmcu=atmega644 -DF_CPU=16000000
 SRCS = main.c adc.c
 OBJS = $(SRCS:.c=.o)
 TARGET = final_project
-
+VPATH  = src
 .PHONY: all clean
 
 all: $(TARGET)
