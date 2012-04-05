@@ -1,9 +1,9 @@
 /************************************************************************\
-  = adc.h
+  = main.c
   = ECE 4760 Final Project
   = Copyright 2012 Patrick Dear, Mark Bunney 
 
-  Contains definitions related to sampling with TI TLC1543/TLC1542 ADCs
+  Entry point for execution
 
  ========================================================================
   This program is free software: you can redistribute it and/or modify
@@ -20,11 +20,9 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 \************************************************************************/
 
-#ifndef _ADC_H_
-#define _ADC_H_
+#include <avr/io.h>
 
-// Function prototypes
-void adc_init(void);
-
-#endif
+int main(void) {
+	return 0;
+}
 
