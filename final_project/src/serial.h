@@ -1,9 +1,9 @@
 /************************************************************************\
-  = adc.h
+  = serial.h
   = ECE 4760 Final Project
   = Copyright 2012 Patrick Dear, Mark Bunney 
 
-  Contains definitions related to sampling with TI TLC1543/TLC1542 ADCs
+  Contains definitions related to UART communications
 
  ========================================================================
   This program is free software: you can redistribute it and/or modify
@@ -20,14 +20,15 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 \************************************************************************/
 
-#ifndef _ADC_H_
-#define _ADC_H_
+#ifndef _SERIAL_H_
+#define _SERIAL_H_
 
-// definitions
-#define NUM_ADCS 8
+// required includes
+#include <stdint.h>
 
-// Function prototypes
-void adc_init(void);
+// function prototypes
+void serial_init(void);
+void serial_write_str(char *, uint16_t);
 
 #endif
 

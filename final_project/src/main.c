@@ -21,10 +21,13 @@
 \************************************************************************/
 
 #include <avr/io.h>
+#include "serial.h"
+#include "adc.h"
 
 int main(void) {
-	// initialize ADCs
+	// initialize stuff
 	adc_init();
+	serial_init();
 
 	while(1);
 

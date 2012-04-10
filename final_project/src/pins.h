@@ -1,9 +1,9 @@
 /************************************************************************\
-  = adc.h
+  = pins.h
   = ECE 4760 Final Project
   = Copyright 2012 Patrick Dear, Mark Bunney 
 
-  Contains definitions related to sampling with TI TLC1543/TLC1542 ADCs
+  Contains pin definitions for the ATMega644 microcontroller
 
  ========================================================================
   This program is free software: you can redistribute it and/or modify
@@ -20,14 +20,46 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 \************************************************************************/
 
-#ifndef _ADC_H_
-#define _ADC_H_
+#ifndef _PINS_H_
+#define _PINS_H_
 
-// definitions
-#define NUM_ADCS 8
+// Ensure avr/io.h is included
+#include <avr/io.h>
 
-// Function prototypes
-void adc_init(void);
+// ADC/SPI ports/pins
+#define PORT_ADC0 PORTA
+#define PORT_ADC1 PORTA
+#define PORT_ADC2 PORTA
+#define PORT_ADC3 PORTA
+#define PORT_ADC4 PORTA
+#define PORT_ADC5 PORTA
+#define PORT_ADC6 PORTA
+#define PORT_ADC7 PORTA
+#define PORT_MOSI PORTB
+#define PORT_MISO PORTB
+#define PORT_SCK  PORTB
+#define DDR_ADC0  DDRA
+#define DDR_ADC1  DDRA
+#define DDR_ADC2  DDRA
+#define DDR_ADC3  DDRA
+#define DDR_ADC4  DDRA
+#define DDR_ADC5  DDRA
+#define DDR_ADC6  DDRA
+#define DDR_ADC7  DDRA
+#define DDR_MOSI  DDRB
+#define DDR_MISO  DDRB
+#define DDR_SCK   DDRB
+#define PIN_ADC0  0
+#define PIN_ADC1  1
+#define PIN_ADC2  2
+#define PIN_ADC3  3
+#define PIN_ADC4  4
+#define PIN_ADC5  5
+#define PIN_ADC6  6
+#define PIN_ADC7  7
+#define PIN_MOSI  5
+#define PIN_MISO  6
+#define PIN_SCK   7
 
 #endif
 

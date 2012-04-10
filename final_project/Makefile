@@ -19,12 +19,14 @@
 ################################################################################
 
 CC = avr-gcc
+OBJDUMP = avr-objdump
 CFLAGS = -Wall -Os -mmcu=atmega644 -DF_CPU=16000000
-SRCS = main.c adc.c
+SRCS = main.c adc.c serial.c
 OBJS = $(SRCS:.c=.o)
 TARGET = final_project
+DISASM = $(TARGET).dis
 VPATH  = src
-.PHONY: all clean
+.PHONY: all clean dis
 
 all: $(TARGET)
 
@@ -34,6 +36,11 @@ $(OBJS): $(SRCS)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
+$(DISASM): $(TARGET)
+	$(OBJDUMP) -d  $^ > $@
+
+dis: $(DISASM)
+
 clean:
-	rm -rf $(OBJS) $(CFLAGS) $(TARGET)
+	rm -rf $(OBJS) $(TARGET) $(DISASM)
 
