@@ -25,9 +25,15 @@
 
 // definitions
 #define NUM_ADCS 8
+#define CHANNELS_PER_ADC 11
+
+typedef struct _sample_frame_t {
+	uint8_t adc0_data[CHANNELS_PER_ADC];
+} sample_frame_t;
 
 // Function prototypes
 void adc_init(void);
+void adc_get_samples(uint8_t * buffer, uint8_t adc_no);
 
 #endif
 

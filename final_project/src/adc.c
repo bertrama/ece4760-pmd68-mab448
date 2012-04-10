@@ -29,11 +29,24 @@
 #define cs_set(x,y) (x |= (1<<(y)))
 #define cs_clr(x,y) (x &= ~(1<<(y)))
 
+const uint8_t volatile * adc_no_to_port_map[] =
+	{&PORT_ADC0, &PORT_ADC1, &PORT_ADC2, &PORT_ADC3,
+	 &PORT_ADC4, &PORT_ADC5, &PORT_ADC6, &PORT_ADC7};
+const uint8_t  adc_no_to_pin_map[] =
+	{PIN_ADC0, PIN_ADC1, PIN_ADC2, PIN_ADC3,
+	 PIN_ADC4, PIN_ADC5, PIN_ADC6, PIN_ADC7};
+
+
 /**
- * Get samples from specified ADC chip
+ * Get samples from the specified ADC chip from the specified channel
  */
-void sample_adc(uint8_t * result_buffer) {
-	;
+void adc_get_samples(uint8_t * buffer, uint8_t adc_no) {
+	uint8_t i;
+	// validate function parameters
+	if (adc_no >= NUM_ADCS)
+		adc_no = NUM_ADCS - 1;
+
+	
 }
 
 /**
