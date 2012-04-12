@@ -21,15 +21,34 @@
 \************************************************************************/
 
 #include <avr/io.h>
+#include <util/delay.h>
+#include <string.h>
+#include <stdio.h>
 #include "serial.h"
 #include "adc.h"
 
+uint8_t sample_buffer[CHANNELS_PER_ADC];
+char message[] = "ADC values are:\r\n";
+char str_buffer[16];
+
 int main(void) {
+	uint8_t i;
 	// initialize stuff
 	adc_init();
 	serial_init();
 
-	while(1);
+	while(1) {
+		adc_get_samples(&(sample_buffer[0]), 0);
+		serial_write_str(message,strlen(message));
+		for (i = 0; i < CHANNELS_PER_ADC; i++) {
+			sprintf(str_buffer,"channel %u: %03u (0x%02X)\t",i,sample_buffer[i],sample_buffer[i]);
+			serial_write_str(str_buffer,strlen(str_buffer));
+			if (i % 4 == 3)
+				serial_write_str("\r\n",2);
+		}
+		serial_write_str("\r\n",2);
+		_delay_ms(500);
+	}
 
 	return 0;
 }

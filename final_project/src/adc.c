@@ -29,24 +29,53 @@
 #define cs_set(x,y) (x |= (1<<(y)))
 #define cs_clr(x,y) (x &= ~(1<<(y)))
 
-const uint8_t volatile * adc_no_to_port_map[] =
-	{&PORT_ADC0, &PORT_ADC1, &PORT_ADC2, &PORT_ADC3,
-	 &PORT_ADC4, &PORT_ADC5, &PORT_ADC6, &PORT_ADC7};
-const uint8_t  adc_no_to_pin_map[] =
-	{PIN_ADC0, PIN_ADC1, PIN_ADC2, PIN_ADC3,
-	 PIN_ADC4, PIN_ADC5, PIN_ADC6, PIN_ADC7};
+/**
+ * Write two bytes over SPI, get the response
+ */
+uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
+	uint16_t ret;
+	switch (adc_no) {
+		case (0): cs_clr(PORT_ADC0, PIN_ADC0); break;
+		case (1): cs_clr(PORT_ADC1, PIN_ADC1); break;
+		case (2): cs_clr(PORT_ADC2, PIN_ADC2); break;
+		case (3): cs_clr(PORT_ADC3, PIN_ADC3); break;
+		case (4): cs_clr(PORT_ADC4, PIN_ADC4); break;
+		case (5): cs_clr(PORT_ADC5, PIN_ADC5); break;
+		case (6): cs_clr(PORT_ADC6, PIN_ADC6); break;
+		case (7):
+		default: cs_clr(PORT_ADC7, PIN_ADC7);
+	}
 
+	SPDR = (uint8_t)(send >> 8);
+	while (!(SPSR & (1 << SPIF)));
+	ret = SPDR;
+	ret <<= 8;
+	SPDR = (uint8_t)(send);
+	while (!(SPSR & (1 << SPIF)));
+	ret |= SPDR;
+
+	switch (adc_no) {
+		case (0): cs_set(PORT_ADC0, PIN_ADC0); break;
+		case (1): cs_set(PORT_ADC1, PIN_ADC1); break;
+		case (2): cs_set(PORT_ADC2, PIN_ADC2); break;
+		case (3): cs_set(PORT_ADC3, PIN_ADC3); break;
+		case (4): cs_set(PORT_ADC4, PIN_ADC4); break;
+		case (5): cs_set(PORT_ADC5, PIN_ADC5); break;
+		case (6): cs_set(PORT_ADC6, PIN_ADC6); break;
+		case (7):
+		default: cs_set(PORT_ADC7, PIN_ADC7);
+	}
+	return ret;
+}
 
 /**
  * Get samples from the specified ADC chip from the specified channel
  */
 void adc_get_samples(uint8_t * buffer, uint8_t adc_no) {
 	uint8_t i;
-	// validate function parameters
-	if (adc_no >= NUM_ADCS)
-		adc_no = NUM_ADCS - 1;
-
-	
+	for (i = 0; i < CHANNELS_PER_ADC; i++) {
+		*(buffer + i) = (uint8_t)(spi_rw16(i << (8+4), adc_no) >> 8);
+	}
 }
 
 /**

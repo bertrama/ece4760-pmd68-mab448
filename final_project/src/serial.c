@@ -28,13 +28,19 @@
  * Initialize serial connecton
  */
 void serial_init(void) {
-	;
+	UCSR0B = (1 << TXEN0) | (1 << RXEN0); // Enable receive and transmit
+	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // UART, no parity, 1 stop bit, 8-bit frame
+	UBRR0 = 103; // 9600 baud
 }
 
 /**
  * Write a string over the UART connection
  */
 void serial_write_str(char * s, uint16_t len) {
-	;
+	uint16_t i;
+	for (i = 0; i < len; i++) {
+		UDR0 = *(s + i);
+		while (!(UCSR0A & (1 << TXC0)));
+	}
 }
 
