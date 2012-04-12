@@ -37,19 +37,27 @@ int main(void) {
 	adc_init();
 	serial_init();
 
+	DDRC = 0xFF;
+	PORTC = 0xFF;
+	serial_write_str(message,strlen(message));
 	while(1) {
+		
 		adc_get_samples(&(sample_buffer[0]), 0);
-		serial_write_str(message,strlen(message));
-		for (i = 0; i < CHANNELS_PER_ADC; i++) {
+		/*for (i = 0; i < 1; i++) {
 			sprintf(str_buffer,"channel %u: %03u (0x%02X)\t",i,sample_buffer[i],sample_buffer[i]);
 			serial_write_str(str_buffer,strlen(str_buffer));
 			if (i % 4 == 3)
 				serial_write_str("\r\n",2);
 		}
 		serial_write_str("\r\n",2);
-		_delay_ms(500);
+		*/
+		sprintf(str_buffer,"%03u (0x%03X)\r\n",sample_buffer[i],sample_buffer[i]);
+		//serial_write_str("\b\b\b",3);
+		serial_write_str(str_buffer,strlen(str_buffer));
+		_delay_ms(100);
+		PORTC ^= 0x01;
 	}
 
-	return 0;
+	//return 0;
 }
 

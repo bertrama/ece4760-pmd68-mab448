@@ -28,9 +28,15 @@
  * Initialize serial connecton
  */
 void serial_init(void) {
+	//DDRD |=  (1 << PD1);
+	#if F_CPU < 20000000UL && defined(U2X0)
+		UCSR0A = (1 << U2X0);
+		UBRR0L = (F_CPU / (8UL * UART_BAUD)) - 1;
+	#else
+		UBRR0L = (F_CPU / (16UL * UART_BAUD)) - 1;
+	#endif
 	UCSR0B = (1 << TXEN0) | (1 << RXEN0); // Enable receive and transmit
-	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // UART, no parity, 1 stop bit, 8-bit frame
-	UBRR0 = 103; // 9600 baud
+	//UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // UART, no parity, 1 stop bit, 8-bit frame
 }
 
 /**
@@ -39,8 +45,8 @@ void serial_init(void) {
 void serial_write_str(char * s, uint16_t len) {
 	uint16_t i;
 	for (i = 0; i < len; i++) {
+		while (!(UCSR0A & (1 << UDRE0)));
 		UDR0 = *(s + i);
-		while (!(UCSR0A & (1 << TXC0)));
 	}
 }
 

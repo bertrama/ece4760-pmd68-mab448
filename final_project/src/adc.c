@@ -22,6 +22,7 @@
 
 #include <stdint.h>
 #include <avr/io.h>
+#include <util/delay.h>
 #include "adc.h"
 #include "pins.h"
 
@@ -29,9 +30,17 @@
 #define cs_set(x,y) (x |= (1<<(y)))
 #define cs_clr(x,y) (x &= ~(1<<(y)))
 
+uint8_t spi_write_byte(uint8_t byte) {
+	SPDR = byte;
+	while (!(SPSR & (1 << SPIF)));
+	byte = SPSR;
+	return SPDR;
+}
+
 /**
  * Write two bytes over SPI, get the response
  */
+char a = 'a';
 uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 	uint16_t ret;
 	switch (adc_no) {
@@ -48,9 +57,11 @@ uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 
 	SPDR = (uint8_t)(send >> 8);
 	while (!(SPSR & (1 << SPIF)));
-	ret = SPDR;
+	//_delay_us(100);
+	ret = SPDR;//spi_write_byte(0xAA);//send >> 8);
 	ret <<= 8;
-	SPDR = (uint8_t)(send);
+	SPDR = (uint8_t)(send & 0xFF);
+	//_delay_us(100);
 	while (!(SPSR & (1 << SPIF)));
 	ret |= SPDR;
 
@@ -65,7 +76,7 @@ uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 		case (7):
 		default: cs_set(PORT_ADC7, PIN_ADC7);
 	}
-	return ret;
+	return ret;//(hi << 8) | lo;
 }
 
 /**
@@ -84,6 +95,8 @@ void adc_get_samples(uint8_t * buffer, uint8_t adc_no) {
  * The maximum serial clock frequency is 2.1 MHz
  */
 void adc_init(void) {
+	DDR_SPI |= (1 << PIN_SCK) | (1 << PIN_MOSI) | (1 << PB4);
+	PORTB &= ~((1<<PIN_MOSI) | (1 << PIN_SCK));
 	// Initialize SPI module
 	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0); // Assuming 16MHz clock, use divide by 16
 

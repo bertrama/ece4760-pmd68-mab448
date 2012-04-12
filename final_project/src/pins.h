@@ -49,6 +49,7 @@
 #define DDR_MOSI  DDRB
 #define DDR_MISO  DDRB
 #define DDR_SCK   DDRB
+#define DDR_SPI   DDRB
 #define PIN_ADC0  0
 #define PIN_ADC1  1
 #define PIN_ADC2  2

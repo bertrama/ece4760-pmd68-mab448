@@ -25,8 +25,12 @@ SRCS = main.c adc.c serial.c
 OBJS = $(SRCS:.c=.o)
 TARGET = final_project
 DISASM = $(TARGET).dis
+HEX = $(TARGET).hex
 VPATH  = src
-.PHONY: all clean dis
+
+PORT = /dev/tty.PL2303-*
+
+.PHONY: all clean dis flash hex
 
 all: $(TARGET)
 
@@ -41,6 +45,12 @@ $(DISASM): $(TARGET)
 
 dis: $(DISASM)
 
+hex: $(TARGET)
+	avr-objcopy -O ihex $(TARGET) $(HEX)
+
+flash: hex
+	avrdude -P $(PORT) -p m644 -c STK500 -U flash:w:$(HEX)
+
 clean:
-	rm -rf $(OBJS) $(TARGET) $(DISASM)
+	rm -rf $(OBJS) $(TARGET) $(DISASM) $(HEX)
 

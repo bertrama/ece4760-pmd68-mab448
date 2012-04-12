@@ -26,6 +26,8 @@
 // required includes
 #include <stdint.h>
 
+#define UART_BAUD 9600
+
 // function prototypes
 void serial_init(void);
 void serial_write_str(char *, uint16_t);
