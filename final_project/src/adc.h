@@ -41,6 +41,7 @@ typedef struct _sample_frame_t {
 // Function prototypes
 void adc_init(void);
 void adc_get_samples(uint8_t * buffer, uint8_t adc_no);
+void adc_get_frame(sample_frame_t *);
 
 #endif
 

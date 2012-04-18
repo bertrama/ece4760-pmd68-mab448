@@ -30,6 +30,7 @@
 uint8_t sample_buffer[CHANNELS_PER_ADC];
 char message[] = "ADC values are:\r\n";
 char str_buffer[16];
+uint8_t adc_frame;
 
 int main(void) {
 	uint8_t i;

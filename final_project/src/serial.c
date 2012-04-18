@@ -23,6 +23,7 @@
 #include <avr/io.h>
 #include <string.h>
 #include "serial.h"
+#include "adc.h"
 
 /**
  * Initialize serial connecton
@@ -45,8 +46,32 @@ void serial_init(void) {
 void serial_write_str(char * s, uint16_t len) {
 	uint16_t i;
 	for (i = 0; i < len; i++) {
-		while (!(UCSR0A & (1 << UDRE0)));
-		UDR0 = *(s + i);
+		serial_write_byte(*(s + i));
 	}
 }
+
+/**
+ * Write a byte over the UART connection
+ */
+void serial_write_byte(char c) {
+	while (!(UCSR0A & (1 << UDRE0)));
+	UDR0 = c;
+}
+
+/**
+ * Write the entirety of a data frame over the UART
+ */
+void write_data_frame(sample_frame_t * frame) {
+	uint8_t channel_offset = 0; // Do this for efficiency, avoid multiplies
+	uint8_t i, j;
+	for (i = 0; i < NUM_ADCS; i++) {
+		serial_write_str("AD",2);
+		serial_write_byte(i);
+		for (j = 0; j < CHANNELS_PER_ADC; j++) {
+			serial_write_byte(*(((uint8_t *)frame) + channel_offset + j));
+		}
+		channel_offset += CHANNELS_PER_ADC;
+	}
+}
+
 
