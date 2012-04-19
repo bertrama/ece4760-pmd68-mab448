@@ -35,14 +35,17 @@ public class ControlFrame extends JFrame {
 			adcFrameControls[i] = new ADCFrameControls(i);
 			adcFramePanel.add(adcFrameControls[i],c);
 		}
-		adcFramePanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.GRAY),"Raw ADC Data"));
+		adcFramePanel.setBorder(BorderFactory.createTitledBorder("Raw ADC Data"));
 		c.gridx = 0;
 		c.gridy = 0;
 		this.add(adcFramePanel,c);
+		c.gridy = 1;
+		this.add(new SerialControl(),c);
 
 		this.pack();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
+		this.setMinimumSize(this.getSize());
 	}
 
 	private static class ADCFrameControls extends JPanel {
@@ -99,6 +102,10 @@ public class ControlFrame extends JFrame {
 			viewButton.setPreferredSize(new Dimension(80,30));
 			this.setPreferredSize(new Dimension(150, 30));
 		}
+	}
+
+	public static void showWarning(String message,String title) {
+		JOptionPane.showMessageDialog(getFrames()[0],message,title,JOptionPane.ERROR_MESSAGE);
 	}
 
 }
