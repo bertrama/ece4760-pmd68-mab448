@@ -54,7 +54,7 @@ int main(void) {
 		//sprintf(str_buffer,"%03u (0x%03X)\r\n",sample_buffer[i],sample_buffer[i]);
 		//serial_write_str("\b\b\b",3);
 		//serial_write_str(str_buffer,strlen(str_buffer));
-		_delay_ms(300);
+		_delay_ms(10);
 		adc_get_frame(&adc_frame);
 		serial_write_frame(&adc_frame);
 		PORTC ^= 0x01;

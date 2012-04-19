@@ -86,11 +86,11 @@ void adc_get_samples(uint8_t * buffer, uint8_t adc_no) {
 	uint8_t i;
 	for (i = 0; i < CHANNELS_PER_ADC; i++) {
 		if (i == 0)
-			;//spi_rw16(i << (8+4),adc_no);
+			spi_rw16(i << (8+4),adc_no);
 		else
-			*(buffer + i - 1) = 2;//(uint8_t)(spi_rw16(i << (8+4), adc_no) >> 8);
+			*(buffer + i - 1) = (uint8_t)(spi_rw16(i << (8+4), adc_no) >> 8);
 	}
-	*(buffer + CHANNELS_PER_ADC - 1) = 4;//(uint8_t)(spi_rw16(0, adc_no) >> 8);
+	*(buffer + CHANNELS_PER_ADC - 1) = (uint8_t)(spi_rw16(0, adc_no) >> 8);
 }
 
 /**
@@ -114,7 +114,7 @@ void adc_init(void) {
 	DDR_SPI |= (1 << PIN_SCK) | (1 << PIN_MOSI) | (1 << PB4);
 	PORTB &= ~((1<<PIN_MOSI) | (1 << PIN_SCK));
 	// Initialize SPI module
-	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0); // Assuming 16MHz clock, use divide by 16
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPI2X); // Assuming 16MHz clock, use divide by 16
 
 	// Initialize CS pins
 	DDR_ADC0 |= (1<<PIN_ADC0);
