@@ -157,6 +157,7 @@ public class SerialConnection {
 									synchronized (adc_data) {
 										adc_data[adc_no][channel_no] = b;
 									}
+									channel_no += 1;
 									if (adc_no == 0 && channel_no == BrainMap.CHANNELS_PER_ADC && fileWriter != null) {
 										try {
 											synchronized (adc_data) {
@@ -165,10 +166,10 @@ public class SerialConnection {
 											}
 											fileWriter.write("\n");
 										} catch (IOException e) {
-											;
+											System.err.println("Error printing data to file");
+											e.printStackTrace();
 										}
 									}
-									channel_no += 1;
 								}
 								else {
 									// Something bad has happened... try to resynchronize
@@ -190,9 +191,11 @@ public class SerialConnection {
 				}
 			}
 			try {
+				fileWriter.flush();
 				fileWriter.close();
 			} catch (IOException e) {
-				;
+				System.err.println("Error closing serial dump file");
+				e.printStackTrace();
 			}
 			System.out.println("data parser quitting.");
 		}
