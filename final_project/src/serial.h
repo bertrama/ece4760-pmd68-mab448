@@ -25,6 +25,7 @@
 
 // required includes
 #include <stdint.h>
+#include "adc.h"
 
 #define UART_BAUD 115200
 
@@ -32,6 +33,7 @@
 void serial_init(void);
 void serial_write_str(char *, uint16_t);
 void serial_write_byte(char);
+void serial_write_frame(sample_frame_t *);
 
 #endif
 

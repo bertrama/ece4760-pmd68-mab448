@@ -24,7 +24,7 @@
 #define _ADC_H_
 
 // definitions
-#define NUM_ADCS 8
+#define NUM_ADCS 1
 #define CHANNELS_PER_ADC 11
 
 typedef struct _sample_frame_t {

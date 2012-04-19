@@ -61,7 +61,7 @@ void serial_write_byte(char c) {
 /**
  * Write the entirety of a data frame over the UART
  */
-void write_data_frame(sample_frame_t * frame) {
+void serial_write_frame(sample_frame_t * frame) {
 	uint8_t channel_offset = 0; // Do this for efficiency, avoid multiplies
 	uint8_t i, j;
 	for (i = 0; i < NUM_ADCS; i++) {

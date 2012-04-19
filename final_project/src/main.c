@@ -30,20 +30,19 @@
 uint8_t sample_buffer[CHANNELS_PER_ADC];
 char message[] = "ADC values are:\r\n";
 char str_buffer[16];
-uint8_t adc_frame;
+sample_frame_t adc_frame;
 
 int main(void) {
-	uint8_t i;
 	// initialize stuff
 	adc_init();
 	serial_init();
 
 	DDRC = 0xFF;
 	PORTC = 0xFF;
-	serial_write_str(message,strlen(message));
+	//serial_write_str(message,strlen(message));
 	while(1) {
-		
-		adc_get_samples(&(sample_buffer[0]), 0);
+		//serial_write_str("asdf",4);
+		//adc_get_samples(&(sample_buffer[0]), 0);
 		/*for (i = 0; i < 1; i++) {
 			sprintf(str_buffer,"channel %u: %03u (0x%02X)\t",i,sample_buffer[i],sample_buffer[i]);
 			serial_write_str(str_buffer,strlen(str_buffer));
@@ -52,13 +51,15 @@ int main(void) {
 		}
 		serial_write_str("\r\n",2);
 		*/
-		sprintf(str_buffer,"%03u (0x%03X)\r\n",sample_buffer[i],sample_buffer[i]);
+		//sprintf(str_buffer,"%03u (0x%03X)\r\n",sample_buffer[i],sample_buffer[i]);
 		//serial_write_str("\b\b\b",3);
-		serial_write_str(str_buffer,strlen(str_buffer));
-		_delay_ms(100);
+		//serial_write_str(str_buffer,strlen(str_buffer));
+		_delay_ms(300);
+		adc_get_frame(&adc_frame);
+		serial_write_frame(&adc_frame);
 		PORTC ^= 0x01;
 	}
 
-	//return 0;
+	return 0;
 }
 

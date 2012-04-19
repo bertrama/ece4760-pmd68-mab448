@@ -62,7 +62,7 @@ public class SerialControl extends JPanel {
 						return;
 					}
 					connectButton.setText("Disconnect");
-					connectLabel.setText("Connected");
+					connectLabel.setText("Connected to " + SerialConnection.connection.getName());
 				}
 				else {
 					try {
@@ -85,9 +85,12 @@ public class SerialControl extends JPanel {
 		this.add(portComboBox,c);
 		c.gridx = 1;
 		this.add(refreshButton,c);
+		c.gridx = 0;
+		c.gridwidth = 2;
 		c.gridy = 1;
 		this.add(connectButton,c);
 		c.gridx = 0;
+		c.gridy = 2;
 		this.add(connectLabel,c);
 	}
 

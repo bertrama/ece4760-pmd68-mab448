@@ -40,7 +40,7 @@ uint8_t spi_write_byte(uint8_t byte) {
 /**
  * Write two bytes over SPI, get the response
  */
-char a = 'a';
+//char a = 'a';
 uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 	uint16_t ret;
 	switch (adc_no) {
@@ -85,8 +85,12 @@ uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 void adc_get_samples(uint8_t * buffer, uint8_t adc_no) {
 	uint8_t i;
 	for (i = 0; i < CHANNELS_PER_ADC; i++) {
-		*(buffer + i) = (uint8_t)(spi_rw16(i << (8+4), adc_no) >> 8);
+		if (i == 0)
+			;//spi_rw16(i << (8+4),adc_no);
+		else
+			*(buffer + i - 1) = 2;//(uint8_t)(spi_rw16(i << (8+4), adc_no) >> 8);
 	}
+	*(buffer + CHANNELS_PER_ADC - 1) = 4;//(uint8_t)(spi_rw16(0, adc_no) >> 8);
 }
 
 /**
