@@ -49,7 +49,7 @@ hex: $(TARGET)
 	avr-objcopy -O ihex $(TARGET) $(HEX)
 
 flash: hex
-	avrdude -P $(PORT) -p m644 -c STK500 -U flash:w:$(HEX)
+	avrdude -P $(PORT) -p m644p -c STK500 -U flash:w:$(HEX)
 
 clean:
 	rm -rf $(OBJS) $(TARGET) $(DISASM) $(HEX)

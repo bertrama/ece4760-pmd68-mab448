@@ -7,11 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84b4a6a3-9dd7-4b55-b642-2051d2053139" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BrainMap/src/gui/PlotFrame.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/BrainMap/src/main/BrainMap.java" afterPath="$PROJECT_DIR$/BrainMap/src/BrainMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Makefile" afterPath="$PROJECT_DIR$/../Makefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/main/BrainMap.java" afterPath="$PROJECT_DIR$/BrainMap/src/main/BrainMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" afterPath="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main.c" afterPath="$PROJECT_DIR$/../src/main.c" />
     </list>
     <ignored path="BrainMap.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,35 +76,28 @@
       <file leaf-file-name="ADCFrame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="23" selection-start="2547" selection-end="2547" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#1302:1874" expanded="false" />
-                <element signature="e#1908#2209#0" expanded="true" />
-                <element signature="e#2204#2205#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BrainMap.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BrainMap/src/main/BrainMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="40" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
+            <state line="154" column="38" selection-start="4973" selection-end="4973" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlotFrame.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/PlotFrame.java">
+      <file leaf-file-name="ColorMap.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="30" selection-start="788" selection-end="788" vertical-scroll-proportion="0.5012854">
+            <state line="75" column="22" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.5192802">
               <folding>
-                <element signature="e#0#2692#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;class#PlotFrame#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerialControl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="10" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,7 +105,7 @@
       <file leaf-file-name="ControlFrame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="21" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
+            <state line="86" column="22" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,21 +125,24 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/BrainMap/src/BrainMap.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/gui/ADCView.java" />
-        <option value="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" />
-        <option value="$PROJECT_DIR$/BrainMap/src/main/BrainMap.java" />
         <option value="$PROJECT_DIR$/serialdump.txt" />
-        <option value="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" />
-        <option value="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/gui/PlotFrame.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/main/BrainMap.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/BrainMap.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/main/ChannelPosition.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/main/BrainMapConstants.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="78" />
-    <option name="y" value="38" />
+    <option name="x" value="56" />
+    <option name="y" value="51" />
     <option name="width" value="1370" />
     <option name="height" value="740" />
   </component>
@@ -188,16 +188,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -229,10 +219,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="serial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -245,6 +231,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="serial" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -286,6 +276,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane">
         <subPane />
       </pane>
@@ -311,7 +311,7 @@
   </component>
   <component name="RunManager" selected="Application.BrainMap">
     <configuration default="false" name="BrainMap" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="main.BrainMap" />
+      <option name="MAIN_CLASS_NAME" value="BrainMap" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -504,7 +504,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="78" y="38" width="1370" height="740" extended-state="0" />
+    <frame x="56" y="51" width="1370" height="740" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -521,10 +521,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24357034" sideWeight="0.67205167" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3279483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -598,60 +598,51 @@
         <state line="5" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.10600707" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="20" selection-start="2785" selection-end="2785" vertical-scroll-proportion="0.30591258">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serialdump.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="24" selection-start="499" selection-end="499" vertical-scroll-proportion="0.73264784" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="119" selection-start="4131" selection-end="4131" vertical-scroll-proportion="0.26992288">
-          <folding />
-        </state>
+        <state line="166" column="66" selection-start="4795" selection-end="4795" vertical-scroll-proportion="-0.013513514" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java">
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/main/ChannelPosition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="15" column="19" selection-start="259" selection-end="259" vertical-scroll-proportion="0.5012854" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/main/BrainMap.java">
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/BrainMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="40" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="23" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/main/BrainMapConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="44" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="23" selection-start="2547" selection-end="2547" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#1302:1874" expanded="false" />
-            <element signature="e#1908#2209#0" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="154" column="38" selection-start="4973" selection-end="4973" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/PlotFrame.java">
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="30" selection-start="788" selection-end="788" vertical-scroll-proportion="0.5012854">
+        <state line="27" column="10" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="22" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="22" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.5192802">
           <folding>
-            <element signature="e#0#2692#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="docComment;class#PlotFrame#0" expanded="false" />
           </folding>
         </state>
       </provider>

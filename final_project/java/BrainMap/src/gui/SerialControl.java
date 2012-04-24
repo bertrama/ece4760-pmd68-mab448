@@ -13,11 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created with IntelliJ IDEA.
- * User: patrick
- * Date: 4/18/12
- * Time: 12:57 PM
- * To change this template use File | Settings | File Templates.
+ * Control panel for serial connections
  */
 public class SerialControl extends JPanel {
 
@@ -29,8 +25,9 @@ public class SerialControl extends JPanel {
 	public SerialControl() {
 		this.setBorder(BorderFactory.createTitledBorder("Serial Connection"));
 		this.setLayout(new GridBagLayout());
+		//this.setMinimumSize(new Dimension(300,30));
 		portComboBox = new JComboBox();
-		portComboBox.setPreferredSize(new Dimension(200,30));
+		portComboBox.setPreferredSize(new Dimension(200, 30));
 		refreshButton = new JButton("Refresh");
 		refreshButton.addActionListener(new ActionListener() {
 			@Override

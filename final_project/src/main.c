@@ -21,6 +21,7 @@
 \************************************************************************/
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>
 #include <string.h>
 #include <stdio.h>
@@ -37,8 +38,17 @@ int main(void) {
 	adc_init();
 	serial_init();
 
+	// Setup sampling interrupt
+	TIMSK0 = 2;
+	OCR0A = 249;
+	TCCR0A = 0x02;
+	TCCR0B = 0x03;
+
 	DDRC = 0xFF;
 	PORTC = 0xFF;
+
+	sei();
+
 	//serial_write_str(message,strlen(message));
 	while(1) {
 		//serial_write_str("asdf",4);
@@ -54,12 +64,26 @@ int main(void) {
 		//sprintf(str_buffer,"%03u (0x%03X)\r\n",sample_buffer[i],sample_buffer[i]);
 		//serial_write_str("\b\b\b",3);
 		//serial_write_str(str_buffer,strlen(str_buffer));
-		_delay_ms(10);
-		adc_get_frame(&adc_frame);
-		serial_write_frame(&adc_frame);
+		_delay_ms(100);
 		PORTC ^= 0x01;
 	}
 
 	return 0;
+}
+
+/**
+ * Timer 0 compare match ISR
+ */
+volatile uint8_t do_sample = 20;
+ISR(TIMER0_COMPA_vect) {
+	if (do_sample == 0) {
+		do_sample = 20;
+		PORTC ^= 0x02;
+		adc_get_frame(&adc_frame);
+		serial_write_frame(&adc_frame);
+	}
+	else {
+		do_sample--;
+	}
 }
 
