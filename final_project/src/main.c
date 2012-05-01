@@ -44,8 +44,8 @@ int main(void) {
 	TCCR0A = 0x02;
 	TCCR0B = 0x03;
 
-	DDRC = 0xFF;
-	PORTC = 0xFF;
+	DDRD = 0xFF;
+	PORTD = 0xFF;
 
 	sei();
 
@@ -65,7 +65,7 @@ int main(void) {
 		//serial_write_str("\b\b\b",3);
 		//serial_write_str(str_buffer,strlen(str_buffer));
 		_delay_ms(100);
-		PORTC ^= 0x01;
+		PORTD ^= 0x04;
 	}
 
 	return 0;

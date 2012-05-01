@@ -27,7 +27,13 @@
 #include <stdint.h>
 #include "adc.h"
 
+// baud rate
 #define UART_BAUD 115200
+
+// serial commands
+#define CMD_SEND_DATA 0xAA
+#define CMD_HALT_DATA 0xBB
+#define CMD_SET_LEDS  0xCC
 
 // function prototypes
 void serial_init(void);

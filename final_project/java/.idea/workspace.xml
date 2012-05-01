@@ -7,15 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84b4a6a3-9dd7-4b55-b642-2051d2053139" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/BrainMap/src/gui/PlotFrame.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/BrainMap/src/main/BrainMap.java" afterPath="$PROJECT_DIR$/BrainMap/src/BrainMap.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Makefile" afterPath="$PROJECT_DIR$/../Makefile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" afterPath="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main.c" afterPath="$PROJECT_DIR$/../src/main.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/serial.h" afterPath="$PROJECT_DIR$/../src/serial.h" />
     </list>
     <ignored path="BrainMap.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,7 +80,7 @@
       <file leaf-file-name="ColorMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="22" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.5192802">
+            <state line="80" column="0" selection-start="2335" selection-end="2335" vertical-scroll-proportion="0.8714653">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -188,6 +183,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -276,16 +281,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane />
       </pane>
@@ -305,9 +300,9 @@
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Application.BrainMap">
     <configuration default="false" name="BrainMap" type="Application" factoryName="Application" temporary="true">
@@ -349,6 +344,24 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -374,24 +387,6 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -521,7 +516,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24357034" sideWeight="0.67205167" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3279483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -598,11 +593,6 @@
         <state line="5" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.10600707" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serialdump.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="24" selection-start="499" selection-end="499" vertical-scroll-proportion="0.73264784" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="166" column="66" selection-start="4795" selection-end="4795" vertical-scroll-proportion="-0.013513514" />
@@ -640,7 +630,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="22" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.5192802">
+        <state line="80" column="0" selection-start="2335" selection-end="2335" vertical-scroll-proportion="0.8714653">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
