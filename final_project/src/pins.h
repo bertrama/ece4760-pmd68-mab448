@@ -62,5 +62,31 @@
 #define PIN_MISO  6
 #define PIN_SCK   7
 
+// LED driver pins
+#define DDR_BLANK1   DDRA
+#define PORT_BLANK1  PORTA
+#define PIN_BLANK1   PINA
+#define BLANK1       PA0
+#define DDR_SIN1     DDRA
+#define PORT_SIN1    PORTA
+#define PIN_SIN1     PINA
+#define SIN1         PA6
+#define DDR_LED_CLK  DDRA
+#define PORT_LED_CLK PORTA
+#define PIN_LED_CLK  PINA
+#define LED_CLK      PA1
+#define DDR_XTAL1    DDRA
+#define PORT_XTAL1   PORTA
+#define PIN_XTAL1    PINA
+#define XTAL1        PA7
+#define DDR_GS_CLK1  DDRA
+#define PORT_GS_CLK1 PORTA
+#define PIN_GS_CLK1  PINA
+#define GS_CLK1      PA2
+#define DDR_VPRG1    DDRA
+#define PORT_VPRG1   PORTA
+#define PIN_VPRG1    PINA
+#define VPRG1        PA4
+
 #endif
 

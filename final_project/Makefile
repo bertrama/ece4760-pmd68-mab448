@@ -21,7 +21,7 @@
 CC = avr-gcc
 OBJDUMP = avr-objdump
 CFLAGS = -Wall -Os -mmcu=atmega644 -DF_CPU=16000000
-SRCS = main.c adc.c serial.c
+SRCS = main.c adc.c serial.c led.c
 OBJS = $(SRCS:.c=.o)
 TARGET = final_project
 DISASM = $(TARGET).dis
