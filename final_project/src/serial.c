@@ -21,23 +21,31 @@
 \************************************************************************/
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <string.h>
 #include "serial.h"
+#include "common.h"
 #include "adc.h"
+
+#define BUFFER_SIZE 8
+#define BUFFER_INDEX_MASK 0x07
+uint8_t buffer_head = 0;
+uint8_t buffer_tail = 0;
+uint8_t serial_rx_buffer[BUFFER_SIZE];
+
+extern volatile uint8_t flags;
 
 /**
  * Initialize serial connecton
  */
 void serial_init(void) {
-	//DDRD |=  (1 << PD1);
 	#if F_CPU < 20000000UL && defined(U2X0)
 		UCSR0A = (1 << U2X0);
 		UBRR0L = (F_CPU / (8UL * UART_BAUD)) - 1;
 	#else
 		UBRR0L = (F_CPU / (16UL * UART_BAUD)) - 1;
 	#endif
-	UCSR0B = (1 << TXEN0) | (1 << RXEN0); // Enable receive and transmit
-	//UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // UART, no parity, 1 stop bit, 8-bit frame
+	UCSR0B = (1 << TXEN0) | (1 << RXEN0) | (1 << RXCIE0); // Enable receive and transmit
 }
 
 /**
@@ -74,4 +82,44 @@ void serial_write_frame(sample_frame_t * frame) {
 	}
 }
 
+/**
+ * Handle serial commands
+ */
+void serial_handle() {
+	static uint8_t handler_state = SERIAL_ST_IDLE;
+	while (buffer_head != buffer_tail) {
+		switch (handler_state) {
+			case (SERIAL_ST_IDLE):
+				switch (serial_rx_buffer[buffer_head]) {
+					case (CMD_SEND_DATA): flags |= FLAG_DATA; break;
+					case (CMD_HALT_DATA): flags &= ~FLAG_DATA; break;
+					case (CMD_SET_LEDS): break;
+					case (CMD_TOGGLE_HBT): flags ^= FLAG_HBT; serial_write_byte(CMD_TOGGLE_HBT); break;
+					case (CMD_NOP): break; // do nothing
+					default:; // shouldn't ever end up here
+				}
+				break;
+			case (SERIAL_ST_LED1H): break;
+			case (SERIAL_ST_LED1L): break;
+			case (SERIAL_ST_LED2H): break;
+			case (SERIAL_ST_LED2L): break;
+			case (SERIAL_ST_LED3H): break;
+			case (SERIAL_ST_LED3L): break;
+			default: ; // shouldn't end up here either
+		}
+
+		buffer_head++;
+		buffer_head &= BUFFER_INDEX_MASK;
+	}
+}
+
+/**
+ * UART RX interrupt handler
+ */
+ISR(USART0_RX_vect) {
+	// we should probably do some checking here to make sure we aren't overwriting data
+	// however, if this happens, we're going to be running into other problems anyways, so meh...
+	buffer_tail = (buffer_tail + 1) & BUFFER_INDEX_MASK;
+	serial_rx_buffer[buffer_tail] = UDR0;
+}
 

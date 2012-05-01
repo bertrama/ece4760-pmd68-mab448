@@ -43,7 +43,10 @@ public class SerialControl extends JPanel {
 					try {
 						if (SerialConnection.connection != null && SerialConnection.connection.isOpen())
 							SerialConnection.connection.close();
-						SerialConnection.connection = new SerialConnection((String)portComboBox.getSelectedItem());
+						if (portComboBox.getSelectedItem() instanceof String)
+							SerialConnection.connection = new SerialConnection((String)portComboBox.getSelectedItem());
+						else
+							return;
 					}
 					catch (SerialPortException e) {
 						ControlFrame.showWarning("Couldn't create connection for port\n"+portComboBox.getSelectedItem(),"Error");

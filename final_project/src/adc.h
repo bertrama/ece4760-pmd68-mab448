@@ -24,18 +24,14 @@
 #define _ADC_H_
 
 // definitions
-#define NUM_ADCS 1
-#define CHANNELS_PER_ADC 11
+#define NUM_ADCS 4
+#define CHANNELS_PER_ADC 8
 
 typedef struct _sample_frame_t {
 	uint8_t adc0_data[CHANNELS_PER_ADC];
 	uint8_t adc1_data[CHANNELS_PER_ADC];
 	uint8_t adc2_data[CHANNELS_PER_ADC];
 	uint8_t adc3_data[CHANNELS_PER_ADC];
-	uint8_t adc4_data[CHANNELS_PER_ADC];
-	uint8_t adc5_data[CHANNELS_PER_ADC];
-	uint8_t adc6_data[CHANNELS_PER_ADC];
-	uint8_t adc7_data[CHANNELS_PER_ADC];
 } sample_frame_t;
 
 // Function prototypes

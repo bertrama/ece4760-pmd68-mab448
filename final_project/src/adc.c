@@ -47,12 +47,8 @@ uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 		case (0): cs_clr(PORT_ADC0, PIN_ADC0); break;
 		case (1): cs_clr(PORT_ADC1, PIN_ADC1); break;
 		case (2): cs_clr(PORT_ADC2, PIN_ADC2); break;
-		case (3): cs_clr(PORT_ADC3, PIN_ADC3); break;
-		case (4): cs_clr(PORT_ADC4, PIN_ADC4); break;
-		case (5): cs_clr(PORT_ADC5, PIN_ADC5); break;
-		case (6): cs_clr(PORT_ADC6, PIN_ADC6); break;
-		case (7):
-		default: cs_clr(PORT_ADC7, PIN_ADC7);
+		case (3):
+		default: cs_clr(PORT_ADC3, PIN_ADC3); break;
 	}
 
 	SPDR = (uint8_t)(send >> 8);
@@ -69,12 +65,8 @@ uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 		case (0): cs_set(PORT_ADC0, PIN_ADC0); break;
 		case (1): cs_set(PORT_ADC1, PIN_ADC1); break;
 		case (2): cs_set(PORT_ADC2, PIN_ADC2); break;
-		case (3): cs_set(PORT_ADC3, PIN_ADC3); break;
-		case (4): cs_set(PORT_ADC4, PIN_ADC4); break;
-		case (5): cs_set(PORT_ADC5, PIN_ADC5); break;
-		case (6): cs_set(PORT_ADC6, PIN_ADC6); break;
-		case (7):
-		default: cs_set(PORT_ADC7, PIN_ADC7);
+		case (3):
+		default: cs_set(PORT_ADC3, PIN_ADC3); break;
 	}
 	return ret;//(hi << 8) | lo;
 }
@@ -121,17 +113,9 @@ void adc_init(void) {
 	DDR_ADC1 |= (1<<PIN_ADC1);
 	DDR_ADC2 |= (1<<PIN_ADC2);
 	DDR_ADC3 |= (1<<PIN_ADC3);
-	DDR_ADC4 |= (1<<PIN_ADC4);
-	DDR_ADC5 |= (1<<PIN_ADC5);
-	DDR_ADC6 |= (1<<PIN_ADC6);
-	DDR_ADC7 |= (1<<PIN_ADC7);
 	cs_set(PORT_ADC0,PIN_ADC0);
 	cs_set(PORT_ADC1,PIN_ADC1);
 	cs_set(PORT_ADC2,PIN_ADC2);
 	cs_set(PORT_ADC3,PIN_ADC3);
-	cs_set(PORT_ADC4,PIN_ADC4);
-	cs_set(PORT_ADC5,PIN_ADC5);
-	cs_set(PORT_ADC6,PIN_ADC6);
-	cs_set(PORT_ADC7,PIN_ADC7);
 }
 

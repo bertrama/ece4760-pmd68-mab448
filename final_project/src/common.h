@@ -1,9 +1,9 @@
 /************************************************************************\
-  = serial.h
+  = common.h
   = ECE 4760 Final Project
   = Copyright 2012 Patrick Dear, Mark Bunney 
 
-  Contains definitions related to UART communications
+  Contains definitions related to entire project
 
  ========================================================================
   This program is free software: you can redistribute it and/or modify
@@ -20,38 +20,15 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 \************************************************************************/
 
-#ifndef _SERIAL_H_
-#define _SERIAL_H_
+#ifndef _COMMON_H_
+#define _COMMON_H_
 
-// required includes
-#include <stdint.h>
-#include "adc.h"
+// flags
+#define FLAG_HBT  0x01
+#define FLAG_DATA 0x02
 
-// baud rate
-#define UART_BAUD 115200
-
-// serial commands
-#define CMD_SEND_DATA  0xAA
-#define CMD_HALT_DATA  0xBB
-#define CMD_SET_LEDS   0xCC
-#define CMD_TOGGLE_HBT 0xDD
-#define CMD_NOP        0xEE
-
-// serial handler states
-#define SERIAL_ST_IDLE 0
-#define SERIAL_ST_LED1H 1
-#define SERIAL_ST_LED1L 2
-#define SERIAL_ST_LED2H 3
-#define SERIAL_ST_LED2L 4
-#define SERIAL_ST_LED3H 5
-#define SERIAL_ST_LED3L 6
-
-// function prototypes
-void serial_init(void);
-void serial_write_str(char *, uint16_t);
-void serial_write_byte(char);
-void serial_write_frame(sample_frame_t *);
-void serial_handle();
+#define NUM_ADC_FRAMES 16
+#define NUM_ADC_FRAMES_MASK 0x0F
 
 #endif
 

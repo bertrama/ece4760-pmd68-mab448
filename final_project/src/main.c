@@ -26,19 +26,26 @@
 #include <string.h>
 #include <stdio.h>
 #include "serial.h"
+#include "common.h"
+#include "led.h"
 #include "adc.h"
 
-uint8_t sample_buffer[CHANNELS_PER_ADC];
-char message[] = "ADC values are:\r\n";
-char str_buffer[16];
-sample_frame_t adc_frame;
+// most recent samples
+sample_frame_t adc_frames[NUM_ADC_FRAMES];
+
+// global flags
+volatile uint8_t flags = FLAG_HBT;
+
+volatile uint8_t sample_frame_r; // most recently read from adc frame
+volatile uint8_t sample_frame_w; // most recently written to adc frame
 
 int main(void) {
 	// initialize stuff
 	adc_init();
 	serial_init();
+	led_driver_init();
 
-	// Setup sampling interrupt
+	// Setup sampling interrupt, 1 ms period
 	TIMSK0 = 2;
 	OCR0A = 249;
 	TCCR0A = 0x02;
@@ -49,23 +56,16 @@ int main(void) {
 
 	sei();
 
-	//serial_write_str(message,strlen(message));
 	while(1) {
-		//serial_write_str("asdf",4);
-		//adc_get_samples(&(sample_buffer[0]), 0);
-		/*for (i = 0; i < 1; i++) {
-			sprintf(str_buffer,"channel %u: %03u (0x%02X)\t",i,sample_buffer[i],sample_buffer[i]);
-			serial_write_str(str_buffer,strlen(str_buffer));
-			if (i % 4 == 3)
-				serial_write_str("\r\n",2);
-		}
-		serial_write_str("\r\n",2);
-		*/
-		//sprintf(str_buffer,"%03u (0x%03X)\r\n",sample_buffer[i],sample_buffer[i]);
-		//serial_write_str("\b\b\b",3);
-		//serial_write_str(str_buffer,strlen(str_buffer));
 		_delay_ms(100);
-		PORTD ^= 0x04;
+		serial_handle();
+		if (flags & FLAG_HBT)
+			PORTD ^= 0x04;
+
+		// Check for data, and operate on it if there is some
+		if (sample_frame_r != sample_frame_w) {
+			sample_frame_r = (sample_frame_r + 1) & NUM_ADC_FRAMES_MASK;
+		}
 	}
 
 	return 0;
@@ -76,11 +76,12 @@ int main(void) {
  */
 volatile uint8_t do_sample = 20;
 ISR(TIMER0_COMPA_vect) {
+	uint8_t frame_next;
 	if (do_sample == 0) {
 		do_sample = 20;
-		PORTC ^= 0x02;
-		adc_get_frame(&adc_frame);
-		serial_write_frame(&adc_frame);
+		frame_next = (sample_frame_w + 1) & NUM_ADC_FRAMES_MASK;
+		adc_get_frame(&(adc_frames[frame_next]));
+		sample_frame_w = frame_next;
 	}
 	else {
 		do_sample--;

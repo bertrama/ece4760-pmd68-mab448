@@ -49,7 +49,7 @@ hex: $(TARGET)
 	avr-objcopy -O ihex $(TARGET) $(HEX)
 
 flash: hex
-	avrdude -v -p m644 -c avrispmkII -P usb -U flash:w:$(HEX)
+	avrdude -p m644 -c avrispmkII -P usb -U flash:w:$(HEX)
 
 clean:
 	rm -rf $(OBJS) $(TARGET) $(DISASM) $(HEX)

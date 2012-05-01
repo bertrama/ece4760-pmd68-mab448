@@ -6,7 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84b4a6a3-9dd7-4b55-b642-2051d2053139" name="Default" comment="" />
+    <list default="true" id="84b4a6a3-9dd7-4b55-b642-2051d2053139" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BrainMap/src/gui/LEDFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BrainMap.jar" afterPath="$PROJECT_DIR$/../BrainMap.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Makefile" afterPath="$PROJECT_DIR$/../Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" afterPath="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/main/BrainMapConstants.java" afterPath="$PROJECT_DIR$/BrainMap/src/main/BrainMapConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" afterPath="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/main.c" afterPath="$PROJECT_DIR$/../src/main.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/serial.c" afterPath="$PROJECT_DIR$/../src/serial.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../src/serial.h" afterPath="$PROJECT_DIR$/../src/serial.h" />
+    </list>
     <ignored path="BrainMap.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,13 +85,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ColorMap.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ColorMap.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="26" selection-start="2164" selection-end="2164" vertical-scroll-proportion="2.7763495">
+            <state line="36" column="34" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#559#1201#0" expanded="true" />
+                <element signature="e#1196#1197#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BrainMapConstants.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BrainMap/src/main/BrainMapConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="0" selection-start="2742" selection-end="2742" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,7 +110,25 @@
       <file leaf-file-name="SerialControl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="10" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
+            <state line="48" column="35" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SerialConnection.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="50" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LEDFrame.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/LEDFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="8" selection-start="223" selection-end="223" vertical-scroll-proportion="0.49046323">
               <folding />
             </state>
           </provider>
@@ -95,8 +137,18 @@
       <file leaf-file-name="ControlFrame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="22" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="135" column="30" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="class#1306:1883" expanded="false" />
+                <element signature="e#2384#2728#0" expanded="true" />
+                <element signature="e#2723#2724#0" expanded="true" />
+                <element signature="e#2901#3399#0" expanded="true" />
+                <element signature="e#3394#3395#0" expanded="true" />
+                <element signature="e#3527#3864#0" expanded="true" />
+                <element signature="e#3859#3860#0" expanded="true" />
+                <element signature="class#ADCFrameControls#0;class#ControlFrame#0" expanded="false" />
+                <element signature="method#showWarning#0;class#ControlFrame#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,19 +172,20 @@
         <option value="$PROJECT_DIR$/BrainMap/src/gui/PlotFrame.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/main/BrainMap.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/BrainMap.java" />
-        <option value="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/main/ChannelPosition.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/main/BrainMapConstants.java" />
-        <option value="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" />
         <option value="$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java" />
+        <option value="$PROJECT_DIR$/BrainMap/src/gui/LEDFrame.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="56" />
-    <option name="y" value="51" />
+    <option name="y" value="50" />
     <option name="width" value="1370" />
     <option name="height" value="740" />
   </component>
@@ -295,9 +348,9 @@
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.BrainMap">
     <configuration default="false" name="BrainMap" type="Application" factoryName="Application" temporary="true">
@@ -339,24 +392,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -382,6 +417,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -494,7 +547,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="56" y="51" width="1370" height="740" extended-state="0" />
+    <frame x="56" y="50" width="1370" height="740" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -511,7 +564,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24357034" sideWeight="0.67205167" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3279483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -588,24 +641,34 @@
         <state line="5" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.10600707" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="66" selection-start="4795" selection-end="4795" vertical-scroll-proportion="-0.013513514" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/main/ChannelPosition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="19" selection-start="259" selection-end="259" vertical-scroll-proportion="0.5012854" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/BrainMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="23" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/main/ChannelPosition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="19" selection-start="259" selection-end="259" vertical-scroll-proportion="0.5313352">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="34" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#559#1201#0" expanded="true" />
+            <element signature="e#1196#1197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/main/BrainMapConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="44" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0" />
+        <state line="60" column="0" selection-start="2742" selection-end="2742" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ADCFrame.java">
@@ -613,22 +676,41 @@
         <state line="154" column="38" selection-start="4973" selection-end="4973" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="10" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ControlFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="22" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.0" />
+        <state line="135" column="30" selection-start="3906" selection-end="3906" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="class#1306:1883" expanded="false" />
+            <element signature="e#2384#2728#0" expanded="true" />
+            <element signature="e#2723#2724#0" expanded="true" />
+            <element signature="e#2901#3399#0" expanded="true" />
+            <element signature="e#3394#3395#0" expanded="true" />
+            <element signature="e#3527#3864#0" expanded="true" />
+            <element signature="e#3859#3860#0" expanded="true" />
+            <element signature="class#ADCFrameControls#0;class#ControlFrame#0" expanded="false" />
+            <element signature="method#showWarning#0;class#ControlFrame#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/ColorMap.java">
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/SerialControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="26" selection-start="2164" selection-end="2164" vertical-scroll-proportion="2.7763495">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="48" column="35" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/serial/SerialConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="50" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BrainMap/src/gui/LEDFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="8" selection-start="223" selection-end="223" vertical-scroll-proportion="0.49046323">
+          <folding />
         </state>
       </provider>
     </entry>

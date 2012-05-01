@@ -18,6 +18,12 @@ public class SerialConnection {
 
 	public static SerialConnection connection = null;
 
+	public static final byte CMD_SEND_DATA = (byte)0xAA;
+	public static final byte CMD_HALT_DATA = (byte)0xBB;
+	public static final byte CMD_SET_LEDS = (byte)0xCC;
+	public static final byte CMD_TOGGLE_HBT = (byte)0xDD;
+	public static final byte CMD_NOP = (byte)0xEE;
+
 	// Instance fields
 	private SerialPort serialPort;
 	private String name;
@@ -88,6 +94,18 @@ public class SerialConnection {
 		serialPort.purgePort(SerialPort.PURGE_RXABORT | SerialPort.PURGE_RXCLEAR);
 		serialPort.closePort();
 		dataParser.die();
+	}
+
+	public void write_byte(byte b) {
+		try {
+			serialPort.writeByte(b);
+			//serialPort.purgePort(SerialPort.PURGE_TXCLEAR);
+			//System.out.println("[SerialConnection] Writing byte " + b + " over serial...");
+		}
+		catch (SerialPortException e) {
+			System.err.println("[SerialConnection] Exception writing byte over serial");
+			e.printStackTrace();
+		}
 	}
 
 	public String getName() {

@@ -5,6 +5,8 @@
 package gui;
 
 import main.BrainMapConstants;
+import serial.SerialConnection;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -45,39 +47,27 @@ public class ControlFrame extends JFrame {
 		final ColorMap cm = new ColorMap();
 		cm.addWindowListener(new WindowListener() {
 			@Override
-			public void windowOpened(WindowEvent windowEvent) {
-				//To change body of implemented methods use File | Settings | File Templates.
-			}
+			public void windowOpened(WindowEvent windowEvent) {}
 
 			@Override
 			public void windowClosing(WindowEvent windowEvent) {
-				//To change body of implemented methods use File | Settings | File Templates.
+				colorMapButton.setText("Show ColorMap");
 			}
 
 			@Override
-			public void windowClosed(WindowEvent windowEvent) {
-				//To change body of implemented methods use File | Settings | File Templates.
-			}
+			public void windowClosed(WindowEvent windowEvent) {}
 
 			@Override
-			public void windowIconified(WindowEvent windowEvent) {
-				//To change body of implemented methods use File | Settings | File Templates.
-			}
+			public void windowIconified(WindowEvent windowEvent) {}
 
 			@Override
-			public void windowDeiconified(WindowEvent windowEvent) {
-				//To change body of implemented methods use File | Settings | File Templates.
-			}
+			public void windowDeiconified(WindowEvent windowEvent) {}
 
 			@Override
-			public void windowActivated(WindowEvent windowEvent) {
-				//To change body of implemented methods use File | Settings | File Templates.
-			}
+			public void windowActivated(WindowEvent windowEvent) {}
 
 			@Override
-			public void windowDeactivated(WindowEvent windowEvent) {
-				//To change body of implemented methods use File | Settings | File Templates.
-			}
+			public void windowDeactivated(WindowEvent windowEvent) {}
 		});
 		colorMapButton.addActionListener(new ActionListener() {
 			@Override
@@ -94,6 +84,56 @@ public class ControlFrame extends JFrame {
 		});
 		c.gridy = 2;
 		this.add(colorMapButton,c);
+
+		// add LED heartbeat control
+		JButton hbtButton = new JButton("Toggle Heartbeat");
+		hbtButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				if (SerialConnection.connection != null && SerialConnection.connection.isOpen())
+					SerialConnection.connection.write_byte(SerialConnection.CMD_TOGGLE_HBT);
+				else {
+					showWarning("No serial port has been opened","Warning");
+				}
+			}
+		});
+		c.gridy = 3;
+		this.add(hbtButton,c);
+
+		// add send data control
+		final JCheckBox sendDataCheckbox = new JCheckBox("Send Data");
+		sendDataCheckbox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				if (SerialConnection.connection != null && SerialConnection.connection.isOpen()) {
+					if (sendDataCheckbox.isSelected()) {
+						SerialConnection.connection.write_byte(SerialConnection.CMD_SEND_DATA);
+					}
+					else {
+						SerialConnection.connection.write_byte(SerialConnection.CMD_HALT_DATA);
+					}
+				}
+				else {
+					showWarning("No serial port has been opened","Warning");
+				}
+			}
+		});
+		c.gridy = 4;
+		this.add(sendDataCheckbox,c);
+
+		JButton nopButton = new JButton("Send NOP");
+		nopButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				if (SerialConnection.connection != null && SerialConnection.connection.isOpen())
+					SerialConnection.connection.write_byte(SerialConnection.CMD_NOP);
+				else {
+					showWarning("No serial port has been opened","Warning");
+				}
+			}
+		});
+		c.gridy = 5;
+		this.add(nopButton,c);
 
 		this.pack();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
