@@ -30,5 +30,7 @@
 #define NUM_ADC_FRAMES 16
 #define NUM_ADC_FRAMES_MASK 0x0F
 
+#define SAMPLE_INTERVAL 19 // This value plus 1 == sample period in ms
+
 #endif
 

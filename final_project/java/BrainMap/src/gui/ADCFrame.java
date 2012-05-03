@@ -3,6 +3,7 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.GeneralPath;
 
 
@@ -122,6 +123,10 @@ public class ADCFrame extends JFrame {
 		private boolean[] is_visible;
 		private int[] indexes;
 
+		private static final float POINTER_SIZE = 10f;
+
+		//private int last_index;
+
 		public PlotArea(String xlabel, String ylabel, float y_max, int x_len) {
 			this.x_label = xlabel;
 			this.y_label = ylabel;
@@ -176,6 +181,8 @@ public class ADCFrame extends JFrame {
 						//System.out.println("Trying to add " +i*x_inc+", "+ y_scale*dispData[i] + x0);
 					}
 					g2.draw(polygon);
+
+					g2.fill(new Ellipse2D.Float(x_inc*indexes[channel]+y0 - POINTER_SIZE/2,y_scale * dispData[channel][indexes[channel]] + x0-POINTER_SIZE/2,POINTER_SIZE,POINTER_SIZE));
 				}
 			}
 		}

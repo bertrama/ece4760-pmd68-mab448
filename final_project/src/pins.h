@@ -54,27 +54,49 @@
 #define DDR_BLANK1   DDRA
 #define PORT_BLANK1  PORTA
 #define PIN_BLANK1   PINA
-#define BLANK1       PA0
+#define BLANK1       PA4
 #define DDR_SIN1     DDRA
 #define PORT_SIN1    PORTA
 #define PIN_SIN1     PINA
-#define SIN1         PA6
-#define DDR_LED_CLK  DDRA
-#define PORT_LED_CLK PORTA
-#define PIN_LED_CLK  PINA
-#define LED_CLK      PA1
-#define DDR_XTAL1    DDRA
-#define PORT_XTAL1   PORTA
-#define PIN_XTAL1    PINA
-#define XTAL1        PA7
-#define DDR_GS_CLK1  DDRA
-#define PORT_GS_CLK1 PORTA
-#define PIN_GS_CLK1  PINA
-#define GS_CLK1      PA2
-#define DDR_VPRG1    DDRA
-#define PORT_VPRG1   PORTA
-#define PIN_VPRG1    PINA
-#define VPRG1        PA4
+#define SIN1         PA0
+
+#define DDR_BLANK2   DDRA
+#define PORT_BLANK2  PORTA
+#define PIN_BLANK2   PINA
+#define BLANK2       PA5
+#define DDR_SIN2     DDRA
+#define PORT_SIN2    PORTA
+#define PIN_SIN2     PINA
+#define SIN2         PA1
+
+#define DDR_BLANK3   DDRA
+#define PORT_BLANK3  PORTA
+#define PIN_BLANK3   PINA
+#define BLANK3       PA6
+#define DDR_SIN3     DDRA
+#define PORT_SIN3    PORTA
+#define PIN_SIN3     PINA
+#define SIN3         PA2
+
+#define DDR_LED_CLK  DDRD
+#define PORT_LED_CLK PORTD
+#define PIN_LED_CLK  PIND
+#define LED_CLK      PD6
+
+#define DDR_XTAL     DDRA
+#define PORT_XTAL    PORTA
+#define PIN_XTAL     PINA
+#define XTAL         PA3
+#define DDR_GS_CLK   DDRD
+#define PORT_GS_CLK  PORTD
+#define PIN_GS_CLK   PIND
+#define GS_CLK       PD7
+#define DDR_VPRG     DDRA
+#define PORT_VPRG    PORTA
+#define PIN_VPRG     PINA
+#define VPRG         PA7
+
+
 
 #endif
 

@@ -74,15 +74,15 @@ uint16_t spi_rw16(uint16_t send, uint8_t adc_no) {
 /**
  * Get samples from the specified ADC chip from the specified channel
  */
-void adc_get_samples(uint8_t * buffer, uint8_t adc_no) {
+void adc_get_samples(uint8_t * buffer, uint8_t adc_no, uint8_t start_channel, uint8_t num_channels) {
 	uint8_t i;
-	for (i = 0; i < CHANNELS_PER_ADC; i++) {
-		if (i == 0)
+	for (i = start_channel; i < num_channels; i++) {
+		if (i == start_channel)
 			spi_rw16(i << (8+4),adc_no);
 		else
 			*(buffer + i - 1) = (uint8_t)(spi_rw16(i << (8+4), adc_no) >> 8);
 	}
-	*(buffer + CHANNELS_PER_ADC - 1) = (uint8_t)(spi_rw16(0, adc_no) >> 8);
+	*(buffer + start_channel + num_channels - 1) = (uint8_t)(spi_rw16(0, adc_no) >> 8);
 }
 
 /**
@@ -92,7 +92,7 @@ void adc_get_frame(sample_frame_t * f) {
 	uint8_t channel_offset = 0;
 	uint8_t i;
 	for (i = 0; i < NUM_ADCS; i++) {
-		adc_get_samples(((uint8_t *)f) + channel_offset,i);
+		adc_get_samples(((uint8_t *)f) + channel_offset,i,0,CHANNELS_PER_ADC);
 		channel_offset += CHANNELS_PER_ADC;
 	}
 }
