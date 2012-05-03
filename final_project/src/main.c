@@ -74,14 +74,15 @@ int main(void) {
 /**
  * Timer 0 compare match ISR
  */
-volatile uint8_t do_sample = 20;
+volatile uint8_t do_sample = 19;
 ISR(TIMER0_COMPA_vect) {
 	uint8_t frame_next;
 	if (do_sample == 0) {
-		do_sample = 20;
+		do_sample = 19;
 		frame_next = (sample_frame_w + 1) & NUM_ADC_FRAMES_MASK;
 		adc_get_frame(&(adc_frames[frame_next]));
-		sample_frame_w = frame_next;
+		serial_write_frame(&(adc_frames[frame_next]));
+		//sample_frame_w = frame_next;
 	}
 	else {
 		do_sample--;

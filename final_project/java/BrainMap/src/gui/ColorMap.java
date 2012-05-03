@@ -24,6 +24,20 @@ public class ColorMap extends JFrame {
 		super("ColorMap");
 		setMinimumSize(new Dimension(300, 150));
 
+
+
+		this.setLayout(new GridBagLayout());
+		this.setPreferredSize(new Dimension(300, 100));
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.weightx = .9;
+		c.weighty = .9;
+		final MapCanvas mc = new MapCanvas();
+		//final JPanel panel = new JPanel();
+		//panel.add(mc, c);
+		this.add(mc,c);
+		//this.setBorder(BorderFactory.createTitledBorder("ColorMap"));
+
 		// Setup update timer
 		new Timer(10, new ActionListener() {
 			@Override
@@ -36,6 +50,7 @@ public class ColorMap extends JFrame {
 								ChannelPosition p = BrainMapConstants.CHANNEL_POSITION_MAP.get(BrainMapConstants.getChannelHash(adc, i));
 								//System.out.println(value_map);
 								value_map[p.x][p.y] = data[i];
+								mc.repaint();
 							}
 						}
 					}
@@ -43,15 +58,6 @@ public class ColorMap extends JFrame {
 				}
 			}
 		}).start();
-
-		this.setLayout(new GridBagLayout());
-		this.setPreferredSize(new Dimension(300, 100));
-		GridBagConstraints c = new GridBagConstraints();
-		c.fill = GridBagConstraints.BOTH;
-		c.weightx = .9;
-		c.weighty = .9;
-		this.add(new MapCanvas(), c);
-		//this.setBorder(BorderFactory.createTitledBorder("ColorMap"));
 
 		this.setVisible(false);
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -62,6 +68,7 @@ public class ColorMap extends JFrame {
 
 		@Override
 		public void paint(Graphics g) {
+			super.paint(g);
 			Graphics2D g2 = (Graphics2D) g;
 			int width = getWidth();
 			int height = getHeight();
@@ -76,7 +83,7 @@ public class ColorMap extends JFrame {
 			double y_scale = height / BrainMapConstants.ARRAY_HEIGHT;
 			for (int col = 0; col < BrainMapConstants.ARRAY_WIDTH; col++) {
 				for (int row = 0; row < BrainMapConstants.ARRAY_HEIGHT; row++) {
-					value_map[col][row] = (row + col + value_map[col][row]) % 256;
+					//value_map[col][row] = (row + col + value_map[col][row]) % 256;
 					g2.setColor(Color.getHSBColor(value_map[col][row] / 256f * 0.8f, 1f, 1f));
 					g2.fill(new Rectangle2D.Double(col * x_scale, row * y_scale, (col + 1) * x_scale, (row + 1) * y_scale));
 				}

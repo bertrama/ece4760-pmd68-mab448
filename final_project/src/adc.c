@@ -92,7 +92,7 @@ void adc_get_frame(sample_frame_t * f) {
 	uint8_t channel_offset = 0;
 	uint8_t i;
 	for (i = 0; i < NUM_ADCS; i++) {
-		adc_get_samples(((uint8_t *)f) + i,i);
+		adc_get_samples(((uint8_t *)f) + channel_offset,i);
 		channel_offset += CHANNELS_PER_ADC;
 	}
 }

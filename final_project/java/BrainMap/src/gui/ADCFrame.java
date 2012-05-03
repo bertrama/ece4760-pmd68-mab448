@@ -16,7 +16,7 @@ public class ADCFrame extends JFrame {
 
 	private ValuePanel[] adc_vals;
 	private PlotArea plot_area;
-	private static final Color[] channel_colors = {Color.BLUE, Color.GREEN, Color.YELLOW, Color.RED, Color.ORANGE, Color.CYAN, Color.MAGENTA, Color.PINK, Color.GRAY, Color.BLACK, Color.LIGHT_GRAY};
+	private static final Color[] channel_colors = {Color.BLUE, Color.GREEN, Color.RED, Color.ORANGE, Color.CYAN, Color.MAGENTA, Color.PINK, Color.GRAY, Color.BLACK, Color.LIGHT_GRAY, Color.YELLOW};
 
 	public ADCFrame(final int adc_no) {
 		super("ADC #" + adc_no);

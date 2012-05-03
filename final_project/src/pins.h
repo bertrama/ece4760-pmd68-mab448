@@ -27,17 +27,17 @@
 #include <avr/io.h>
 
 // ADC/SPI ports/pins
-#define PORT_ADC0 PORTA
-#define PORT_ADC1 PORTA
-#define PORT_ADC2 PORTA
-#define PORT_ADC3 PORTA
+#define PORT_ADC0 PORTB
+#define PORT_ADC1 PORTB
+#define PORT_ADC2 PORTB
+#define PORT_ADC3 PORTB
 #define PORT_MOSI PORTB
 #define PORT_MISO PORTB
 #define PORT_SCK  PORTB
-#define DDR_ADC0  DDRA
-#define DDR_ADC1  DDRA
-#define DDR_ADC2  DDRA
-#define DDR_ADC3  DDRA
+#define DDR_ADC0  DDRB
+#define DDR_ADC1  DDRB
+#define DDR_ADC2  DDRB
+#define DDR_ADC3  DDRB
 #define DDR_MOSI  DDRB
 #define DDR_MISO  DDRB
 #define DDR_SCK   DDRB
@@ -46,9 +46,9 @@
 #define PIN_ADC1  1
 #define PIN_ADC2  2
 #define PIN_ADC3  3
-#define PIN_MOSI  5
-#define PIN_MISO  6
-#define PIN_SCK   7
+#define PIN_MOSI  5 // Darker green
+#define PIN_MISO  6 // Lighter green
+#define PIN_SCK   7 // Blue wire
 
 // LED driver pins
 #define DDR_BLANK1   DDRA

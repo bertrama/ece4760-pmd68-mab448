@@ -25,7 +25,7 @@
 
 // definitions
 #define NUM_ADCS 4
-#define CHANNELS_PER_ADC 8
+#define CHANNELS_PER_ADC 9
 
 typedef struct _sample_frame_t {
 	uint8_t adc0_data[CHANNELS_PER_ADC];
