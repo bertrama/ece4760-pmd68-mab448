@@ -90,4 +90,16 @@ h1, h2, h3 {
 	font-size: 36px;
 }
 
+#content a:link, #content a:visited {
+	color: #000;
+}
+
+#content a:active, #content a:hover {
+	color: #666;
+}
+
+#footer {
+	text-align:center;
+}
+
 

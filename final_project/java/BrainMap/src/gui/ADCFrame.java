@@ -92,6 +92,8 @@ public class ADCFrame extends JFrame {
 			//channel_data_panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			GridBagConstraints panel_gbc = new GridBagConstraints();
 			final JCheckBox checkBox = new JCheckBox("", false);
+			checkBox.setSelected(true);
+			plot_area.setChannelVisible(channel_no,true);
 			checkBox.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent actionEvent) {
@@ -182,7 +184,11 @@ public class ADCFrame extends JFrame {
 					}
 					g2.draw(polygon);
 
-					g2.fill(new Ellipse2D.Float(x_inc*indexes[channel]+y0 - POINTER_SIZE/2,y_scale * dispData[channel][indexes[channel]] + x0-POINTER_SIZE/2,POINTER_SIZE,POINTER_SIZE));
+					int index = indexes[channel] - 1;
+					if (index < 0) {
+						index = dispData.length - 1;
+					}
+					g2.fill(new Ellipse2D.Float(x_inc*index+y0 - POINTER_SIZE/2,y_scale * dispData[channel][index] + x0-POINTER_SIZE/2,POINTER_SIZE,POINTER_SIZE));
 				}
 			}
 		}

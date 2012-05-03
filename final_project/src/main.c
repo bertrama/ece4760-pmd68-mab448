@@ -44,7 +44,8 @@ int main(void) {
 	// initialize stuff
 	adc_init();
 	serial_init();
-	led_driver_set(0xFFFF,0xFFFF,0xFFFF);
+	//led_driver_set(0xFFFF,0xFFFF,0xFFFF);
+	led_driver_set(0,0,0);
 	led_driver_init();
 
 	// Setup sampling interrupt, 20 ms period
@@ -67,8 +68,8 @@ int main(void) {
 			PORTD |= 0x10;
 			sample_frame_r = (sample_frame_r + 1) & NUM_ADC_FRAMES_MASK;
 
-			if (flags & FLAG_DATA)
-				serial_write_frame(&(adc_frames[sample_frame_r]));
+			//if (flags & FLAG_DATA)
+			serial_write_frame(&(adc_frames[sample_frame_r]));
 			PORTD &= ~0x10;
 		}
 	}
@@ -94,13 +95,13 @@ ISR(TIMER1_COMPA_vect) {
 
 	led_driver_set(0,0xFFFF,0);
 	// Sample next 6 channels from ADC1
-	adc_get_samples(&(adc_frames[frame_next].adc1_data[3]),1,3,6);
+	adc_get_samples(&(adc_frames[frame_next].adc1_data[0]),1,3,6);
 	// Sample first 6 channels from ADC2
 	adc_get_samples(&(adc_frames[frame_next].adc2_data[0]),2,0,6);
 
 	led_driver_set(0,0,0xFFFF);
 	// Sample next 3 channels from ADC2
-	adc_get_samples(&(adc_frames[frame_next].adc2_data[6]),2,6,3);
+	adc_get_samples(&(adc_frames[frame_next].adc2_data[0]),2,6,3);
 	// Sample next 9 channels from ADC3
 	adc_get_samples(&(adc_frames[frame_next].adc3_data[0]),3,0,9);
 

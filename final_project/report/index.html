@@ -4,6 +4,8 @@
 <meta name="description" content="ECE 4760 Final Project" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <title>BrainMap: ECE 4760 Final Project</title>
 </head>
 <body>
@@ -25,98 +27,388 @@
 <div style="margin:0;height:70px"></div>
 <div id="wrapper_main">
 		<div id="page">
+			<img src="patrick.jpg" style="float:left;height:150px"/>
+			<img src="mark.jpg" style="float:right;height:150px"/>
 			<div id="header" style="text-align:center;">
 			<img src="logo_light.png"/>
 			<h2>ECE 4760 Final Project</h2>
-			<h2>Patrick Dear (pmd68), Mark Bunney (mab448)</h2>
+			<h2>Patrick Dear (pmd68), Mark Bunney, Jr. (mab448)</h2>
 			</div>
 			<div id="content">
 				<div id="introduction" style="margin-top:-60px;height:60px"></div>
 				<h1>Introduction</h1>
-				<ul>
-					<li>One sentence &quot;sound bite&quot; that describes your project.</li>
-					<li>A summary of what you did and why. </li>
-				</ul>
+				<p>Our project records and extracts event-related features from a 36-point relative blood-oxygen concentration sensor array from the surface of the brain.</p>
+ 				<p>We chose this project because of a combined interest in brain-computer interfaces. In an attempt to balance cost, complexity, and sensor density, we decided to implement a NIRS-inspired system. After collecting data from the array, the results were sent to a computer and displayed in a Java GUI.</p>
 				<div id="highlevel" style="margin-top:-60px;height:60px"></div>
+				<hr />
       			<h1>High Level Design</h1>
-			<ul>
-            <li>rationale and sources of your project idea</li>
-              <li>background math</li>
-              <li>logical structure</li>
-              <li>hardware/software tradeoffs</li>
-              <li>Relationship of your design to available IEEE, ISO, ANSI, DIN, and other 
-                standards.</li>
-              <li>Discuss existing patents, copyrights, and trademarks which are relevant 
-                to your project.</li>
-          </ul>
-				<div id="hardware" style="margin-top:-60px;height:60px"></div>
-				<h1>Hardware Design</h1>
-<ul><li>hardware details. Could someone else build this based on what you 
-                have written?</li></ul>
-				<div id="software" style="margin-top:-60px;height:60px"></div>
-				<h1>Software Design</h1>
-      <li> Program/hardware design: 
-          <ul>
-            <li>program details. What parts were tricky to write?</li>
-              <li>Be sure to specifically reference any design or code you used from 
-                someone else.</li>
-              <li>Things you tried which did not work</li>
-          </ul>
-				<div id="results" style="margin-top:-60px;height:60px"></div>
-				<h1>Results</h1>
-          <ul>
-            <li> speed of execution (hesitation, filcker, interactiveness, concurrency)</li>
-              <li>accuracy (numeric, music frequencies, video signal timing, etc)</li>
-              <li> how you enforced safety in the design.</li>
-              <li>interference with other people's designs (e.g. cpu noise, RF interference).</li>
-              <li> usability by you and other people (perhaps with special needs). </li>
-          </ul>
-				<div id="conclusions" style="margin-top:-60px;height:60px"></div>
-				<h1>Conclusions</h1>
-          <ul>
-            <li>Analyse your design in terms of how the results met your expectations. 
-                What might you do differently next time?</li>
-              <li>How did your design conform to the applicable standards?</li>
-              <li>Intellectual property considerations. 
-                <ul>
-                  <li> Did you reuse code or someone else's design?</li>
-                    <li>Did you use code in the public domain?</li>
-                    <li>Are you reverse-engineering a design? How did you deal with 
-                      patent/trademark issues.</li>
-                    <li>Did you have to sign non-disclosure to get a sample part?</li>
-                    <li> Are there patent opportunites for your project?</li>
-                    <li>Are there publishing opportunities for your project? </li>
-                </ul>
-              </li>
-              <li>Ethical considerations. Refering to the <a href="http://www.ieee.org/web/membership/ethics/code_ethics.html">IEEE 
-                Code of Ethics</a>, specifically explain how decisions you made or 
-                actions you took in this project were consistent with this Code of 
-                Ethics. I expect at least 200 words on this topic. A bulleted list will not be acceptable. </li>
-              <li>Legal considerations. For instance, if you use a transmitter, you must discuss 
-                the appropriate FCC legal restrictions. </li>
-          </ul>
-				<h1>Appendix</h1>
-      <li> Appendix with <i>commented</i> program listing 
-      <li> Appendix with schematics (you can download free software from <a href="http://expresspcb.com">expresspcb.com 
-          </a>to draw schematics)
-      <li>Appendix with cost details with all part numbers, vendors, and their price. This 
-          cost will include components as described in the Budget Considerations section. 
-      <li>Appendix with a list of the <i>specific tasks</i> in the project carried 
-          out by each team member. 
-      <li>References you used: 
-          <ul>
-            <li>Data sheets</li>
-              <li>Vendor sites</li>
-              <li>Code/designs borrowed from others</li>
-              <li>Background sites/paper</li>
-          </ul>
+				<h2>Rationale and Sources</h2>
+				<p>
+Several popular methods of measuring brain activity are electroencephalography (EEG), magnetic resonance imaging (MRI), positron emission topography (PET), computed axial tomography (CAT), magnetoencephalography, and near-infrared spectroscopy (NIRS).
+Of these methods, only EEG and NIRS are within any measure of feasibility given our time and budget for this project. MRI uses a powerful magnetic field, PET uses radiations from a nuclear tracer, CAT uses X-rays, and MEG uses unobtainable superconducting magnetometers. EEG is based on picking up electric fields resulting from the electric pulses of the underlying neurons. NIRS, on the other hand, works by shining infrared light into the scalp and measuring the amount of reflected light with a series of phototransistors. Since blood reflects infrared light depending on its level of oxygen concentration and activity within a region of the brain corresponds to increased blood flow to that area, the reflected infrared lights is a measure of local brain activity.
+The EEG is able provide a lot of information with high temporal resolution at the price of less-trivial sensor implementation than NIRS. Without amplification potentials measured at the scalp are on the order of microvolts whereas initial NIRS signals can be as high as the 10 mV range. Since we want high sensor density, the lower cost and easier implementation of an NIRS system are very desirable.</p>
 
+<img src="blood_absorption.png" style="float:right;width:500px"/>
+
+<p>We used <a href="http://iopscience.iop.org/1741-2552/4/3/007" target="_blank">Shirley M Coyle's 2007 paper</a> on a brain-computer interface using NIRS to help provide a proof of concept and reference for our system. Initially we prototyped with phototransistors/LEDs that are slightly beyond the upper window for NIRS (940nm vs 900nm), but we continued to use the 940nm pair after seeing data very similar to that in Coyle's work.</p>
+
+<p>Normally, the goal of NIRS (when applied to a human subject) is to produce an absolute measure of oxygen concentration. Since blood has different
+absorption curves for infrared and red light (as shown to the right),
+the ratio of reflected red and
+infrared light can be used along with said curves to yield an absolute concentration.
+However, since we are only interested in the relative change in blood oxygen concentration, a single infrared light source is
+sufficient.</p>
+
+<h2>Logical Structure</h2>
+<p>The system is broken into five stages: sensor array, filter/amplify, ADC, on-chip processing, and reporting.</p>
+
+<h3>Hardware Structure</h3>
+<p>The 36 sensors are arranged in a 2-by-18 grid on a flexible wire mesh. Each sensor consists of a
+single infrared LED and phototransistor. The array is able to conform to an individual’s head with minimal
+effort. The wires connecting the array to the rest of the system effectively hold the array at approximately
+head-height due to their memory. To bring the array in closer contact with the head, a wire is pulled from
+both sides of the head. Once the array has reached an acceptable location, the wire can be twisted and the
+array will remain in its current location.</p>
+<p>Since the signal from the phototransistor is 10-20mV peak-to-peak with a DC bias of about 4V, it is
+sent to a filter/amplifier boards. These boards consist of a common-emitter pre-amplifier, re-biasing
+stage (to 2.5V) and an active non-inverting AC amplifier. This allowed the system to have a much larger
+dynamic range without sacrificing the low-frequency information we are interested in. The signal is then
+sampled by an ADC and sent to the microcontroller over SPI. The microcontroller can selectively turn a
+sensor’s LED on or off so that adjacent sensors do not interfere with each other.</p>
+
+<h3>Software Structure</h3>
+<p>The microcontroller simultaneously samples from each of 36 sensors, processes the data, and transmits
+the results to a laptop running a Java GUI for display.</p>
+<p>The sensor array was arranged so that multiple phototransistors would be able to receive light from
+multiple LEDs. However, in an attempt to minimize the non-ideal variations between sensors, the microcontroller
+turns on LEDs such that a phototransistor is only activated by its own LED (however, the user can selectively
+turn off sensors from the Java GUI). Consequently, this means that the microcontroller skips over ADC channels
+if they correspond to a sensor that has its LED turned off. After sampling, the results are displayed in a
+Java GUI in three ways: a plot of raw time-domain data, a false-color representation of average relative
+oxygen concentration, and a likelihood graph of possible trends in the data.</p>
+
+<h2>Hardware/Software Tradeoffs</h2>
+<p>Much of the analysis between a hardware and software tradeoff was done during construction of the
+system. Even though we had a large amount of time between samples (about 18 ms)  we wanted a the software
+system to be as efficient as possible in anticipation of extra signal processing. Shortly into our physical
+build, however, we made the decision to trade code efficiency with lower soldering difficulty/time.</p>
+<p>One example of such a tradeoff was with the inputs to the ADC chips. Initially three of the ADCs would
+receive 11 of their sensor grouping (0, 1, or 2, as discussed below in hardware design). The fourth ADC
+would only then need to take in three inputs, one from each sensor group. This approach had rather simple
+software behind it since the microcontroller read from ever ADC port of the first three ADCs. After physically
+arranging the ADC and amplifier boards, it became apparent that the uneven distribution of ADC inputs would
+create a dense region of wires. To avoid this, the inputs were balanced and each ADC took in nine inputs.
+The resulting product had a more uniform distribution of wires.</p>
+ 
+<h2>Standards</h2>
+<p>Our system has no relevant interface standards. We specified our own custom serial packet for
+efficient communication between the microcontroller and the Java GUI.</p>
+ 
+<h2>Intellectual Property</h2>
+We were unable to find many patents relevant to our project. One patent we did find was
+<a href="http://www.scribd.com/doc/63680756/Near-Infrared-Light-Brain-Computer-Interface-Patent">US 2011/0105909 A1</a>.
+It describes a form of a brain-computer control interface using near-infrared light to measure eye response
+to different images. This is sufficiently different from our project.
+ 
+<hr/>
+<div id="hardware" style="margin-top:-60px;height:60px"></div>
+<h1>Hardware Design</h1>
+Our project has three large hardware components: the sensor array, the amplifier boards, and the shoulder-mounting unit.
+ 
+<h2>Sensor Array</h2>
+<h3>Electrical</h3>
+<img src="array.jpg" style="float:right;width:300px;margin:10px"/>
+<p>The sensor array consists of 36 pairs of infrared LEDs and phototransistors. The LEDs are powered
+by the LED driver chips located just behind the array. The drivers provide a constant current sink
+for all channels with the maximum current set by a single resistor (per chip). The formula is the
+following \[I_{max} = \frac{V_{ref}}{R_{ref}} \times 31.5\] where \(V_{ref}\) is 1.24 V. Each LED driver also has the ability to adjust the current
+flowing into each port independently through a method called dot correction. The chip provides 64 steps
+of the current ranging from 0% to 100% of the maximum current as specified by the above equation.
+Dot correction allows the system to selectively turn a given
+sensor’s LED on or off. All LEDs of a particular LED driver could be turned off at once by pulling the
+BLANK pin low. This method was used to quickly prepare the array for sampling.
+The LED drivers are actually meant to drive the LEDs with a PWM, but this was not desired for this system.
+To trick the chip into keeping the LEDs on, the PWM period values were written to their maximum and the
+PWM input to the chip was pulsed once after initially writing to the LED driver. This way, the LED driver
+would turn on the desired LEDs and keep them on until the microcontroller sent a command telling it
+otherwise (through either the BLANK pin or reprogramming the dot correction values).</p>
+ 
+<h3>Mechanical</h3>
+<img src="proto_array.jpg" style="float:right;width:300px;margin:10px"/>
+<p>The first plan for the sensor array was to cut up solder boards into small pieces since their grid of pads
+would allow for near-constant spacing between a given sensor’s LED and phototransistor. However, after
+gathering together the LEDs and phototransistors, it became immediately apparent that this method would
+be excessively expensive for 36 sensors. The second plan involved an old printed circuit board we found.
+It was large enough to produce many small supports for the sensors, but we determined it would be
+unnecessarily difficult to machine. Additionally, the board had two internal ground planes, which
+could potentially lead to shorts between the sensor elements. The third and final plan was to use a
+piece of extruded PVC as the base of the sensors. Holes were drilled into the extruded PVC using a
+solder board as a guide. This provided the benefit of near-constant pin pitch while being cheap and
+easy to construct.</p>
+<p>After drilling the holes in the extruded PVC, the eventual shape of the sensor was marked with a razor blade and cut out with a hacksaw. The first few units were cut out roughly at first with the intention of filing down the edges later. However, the intermediate pieces were so small it was very difficult to precisely change their size. This problem was fixed by cutting the extruded PVC once as close as possible.
+Now that the sensor mounts are done, the electrical components had to be mounted. Using two mechanical ‘helping-hands,’ the sensor mount was restrained while the LED and phototransistor were secured using a hot glue gun. The emitter leads of the phototransistors and the positive leads of the LEDs were bent so they could connect to the wire mesh. In the end, the power for the LEDs was not bent as far down as the phototransistors because of a higher risk of shorts. This resulted in a ground mesh running both horizontally and vertically and a single power line running just horizontally.
+Attaching the sensors to the wire mesh used two ‘helping hands’ along with a piece of foam. The foam allowed for half of the array to remain relatively fixed while adding new sensors. It is very important that the emitter leads of the phototransistors bend in alternating direction so that two leads do not meet near each other. This causes a subtle problem when trying to adjust any element of the array. When you try to heat up one solder joint, there is a very good chance the wire will heat up enough to melt the adjacent joint as well. With this in mind, it is better to spread the joints out to avoid this problem.
+If the mesh wires are not as close to the sensor base (i.e. the extruded PVC) as possible, then the array will have an inferior bend radius. Without a good bend radius, the array will have a hard time adjusting to different sized heads.
+</p>
+
+<h2>Amplifier boards</h2>
+<img src="amp_schem.png" style="float:left;width:400px;margin:10px"/>
+<p>The amplifier boards consisted of a pre-amplifier, re-biasing, and ac-gain stage.
+The pre-amplifier stage was needed to help buffer the sensor input as well as to reduce the amount of
+AC-gain needed in the final state. Having such a large gain in one stage resulted in component values
+that were either too expensive or infeasible to make fit in such a close space. An emitter degeneration
+resistor was added to the common-emitter state to reduce the amount of variation between outputs of
+sensors due to individual device variations of the transistors.</p>
+<p>The capacitor, C1, before the common-emitter stage removes the DC bias from the signal in order to maximize
+gain without railing. C2 removes
+the DC bias from the output of the common-emitter stage and the voltage divider formed by R6 and R6
+re-bias the signal at approximately 2.5V. Together, this keeps the signal as close to the middle of the
+dynamic range (0-5V) as possible.</p>
+<p>Finally, the AC-gain stage provides the amplification necessary to take up the majority of the ADC’s dynamic range.
+It functions as a standard non-inverting amplifier with the exception of a capacitor to ground in the feedback loop.
+This blocks the DC portion of the signal from being amplified since impedance for the capacitor is \(\frac{1}{j\omega C}\).</p>
+ 
+<h2>Mounting System</h2>
+<p>Due to the large number of wire interconnects in the system, we needed a mounting system that would
+provide support as well as manage the wires. We initially considered a simple frame between the two
+shoulders with one box on each shoulder. It was pointed out that we could manage the wires better by
+using PVC tubing as the frame. We discussed our ideas with Kevin Fuhr (friend and fellow member of CUAUV)
+and learned that PVC could in fact be bent (up to 90 degrees in some cases) by first heating it. We took
+a heat gun and were able to bend the PVC to the desired horseshoe-like shape. From here we cut half a
+cylinder out of the two ends of the PVC and bent them flat. This allowed us to fit two screws from the
+frame to the wooden boxes containing the circuit boards.</p>
+<p>To make the wiring easier, we spread the circuit boards out so that we could keep the most numerous
+connections short (i.e. place the LED drivers next to the sensor array so we don’t have to route 36
+more wires through the PVC frame). The top of the frame had a 1”x2” slot cut out by a Dremel tool.</p>
+
+<hr/>
+<div id="software" style="margin-top:-60px;height:60px"></div>
+<h1>Software Design</h1>
+
+<img src="software.png" style="float:right">
+
+<p>The software we used for this project has two major components; The embedded ATMega C code, and the
+PC-side data display code.</p>
+
+<h2>ATMega Code</h2>
+<p>The main function of the ATMega-side code is to manipulate the ADCs and LED drivers to correctly sample the outputs of the analog amplifiers,
+and then to process the data and send it to the PC software to be displayed.</p>
+<p>On startup, the ATMega first initializes the various peripherals needed to accomplish these goals, including the UART0, TIMER 1
+(used to generate sampling interval), and SPI (used to communicate with ADCs)
+internal ATMega modules. In order to get samples from all four ADCs in a time-consistent manner (i.e., in order to maintain a known sampling
+frequency), all of the sampling is done in the TIMER 1 compare match interrupt, which is triggered every 20 ms. All of the processing on the
+acquired data is done in the main while(1) loop, as this processing does not have strict timing requirements.</p>
+<p>Because of the physical arrangement of the LEDs and phototransistors in the sensor array, turning on all of the LEDs at once results in interference
+between adjacent sensors. Thus, during the sampling operation, we wanted to only have turned on a third of the LEDs, such that any interference would be
+minimized. To do this, in the TIMER 1 ISR in which sampling takes place, we enable the all of the outputs of only one of the three LED drivers at any given
+time. Then, we get samples from the ADC channels corresponding to the sensor pairs for the active LEDs. By doing this for all three LED drivers in a consistent
+way, we are able to ensure that the sampling period for any given channel is exactly 20 ms, even though the sampling operations for different channels are
+technically sequential.</p>
+<p>Once the while(1) loop is notified of new sample data through a set of global variables, the measured data is sent using the UART module to the PC.</p>
+<p>The UART module is also used to parse and implement a set of commands which can be set over the UART. These include a 'heartbeat' command (used to ensure
+that serial communication is working), a 'NOP' command (Used to test PC-side transmit functionality), and can be easily expanded to implement other commands.</p>
+
+<h2>Display Software</h2>
+<img src="java_gui.png" style="float:right;margin:4px;width:350px"/>
+
+<p>To have full control over how we displayed the sampled data, we decided to implement our own data display and system control application in Java.
+This proved to be quite useful throughout the development of the system.</p>
+
+<p>From this software, we can send the aforementioned commands to the ATMega, control whether or not data should be sent over the UART, store all
+incoming data to a text file, and display the sampled data in a variety of ways.</p>
+
+<img src="color_map.png" style="float:right;margin:4px;width:200px"/>
+
+<p>The first way we implemented a data display was to simply show the raw ADC samples as unsigned integers,
+which range from 0 to 255. Then, using our own plotting library, we added functionality for plotting the sample values for each
+channel over time. With this functionality, we were able to verify that we were indeed acquiring data that represented blood oxygen content (by observing
+a heartbeat on top much lower frequency modulations, as described by <a href="http://iopscience.iop.org/1741-2552/4/3/007" target="_blank">Coyle</a>.</p>
+
+<p>The plotting functionality was implemented so that multiple channels could be graphed on the same plot, for ease of comparison between different
+channels.</p>
+
+<p>Additionally, we added a false-color image display, which shows the spacial relationships between the sensor values in real-time.</p>
+
+<p>To implement a serial connection with the ATMega, we used the open source
+<a href="http://code.google.com/p/java-simple-serial-connector/">Java Simple Serial Connector</a> (jSSC) library.
+On top of the primitives provided by this library, we used a thread dedicated to parsing incoming data and
+placing it appropriately in data buffers.</p>
+
+<hr/>
+<div id="results" style="margin-top:-60px;height:60px"></div>
+<img src="wearing_it.jpg" style="float:right;width:200px"/>
+<h1>Results</h1>
+
+<p>The system was successfully constructed and tested. Even though four out of the 36 sensor channels
+were  not functioning to their full potential. We believe one of the defects was caused by a blown up
+op-amp within the quad op-amp. However, given the dense layout on the amplifier boards, we were unable
+to simply re-solder the entire op-amp chip for a single sensor.</p>
+
+<p>Since our system should be sensitive to imagined motor actions as well as actual motor actions,
+we tested the system while sitting down. Team member A wore the system and relaxed while the team
+member B watched the data on a laptop. After the waveforms seemed to be relatively constant, team
+member A was told to imagine kicking a ball with their right foot. Team member A would maintain this
+imagery for 10-20 seconds at which time the test is over.</p>
+
+<p>We carried out the above test twice and observed what appeared to be unique activity on a specific
+channel. The first test showed a local maximum of intensity while the second test showed a local minimum
+of intensity. Unfortunately, we ran out of time to conduct additional tests.</p>
+
+<p>Safety was maintained by thoroughly testing the system on the bench before trying to wear it.
+Before the PVC frame was finalized, there were quite a few loose wires that could easily be caught
+in various items. When possible we used masking or electrical tape to bundle wires into small groups.
+This made them much more manageable when routing them through the PVC frame and in general kept the
+workspace clean. Since we were often both working on the system at the same time, we made sure to
+watch out for each other with regard to sleep deprivation. It’s too easy to keep working past the
+point when productivity is exchanged for unproductive, unsafe work. One point in particular is handling
+soldering irons. To help address this issue, we started work early and took breaks.</p>
+
+<p>Our system produces no noticeable interference since we are using an isolating power supply and
+lack any fans or other noisy elements.</p>
+
+<p>We designed the system so that it could be used by as many types of people as possible.
+While prototyping we tried getting sensor data from individuals with different hair types.
+When we were planning the PVC frame, we arrived at the final design in part because there would
+be less variation between individuals than if we were to place the wooden boxes directly on the
+shoulders.</p>
+
+<hr/>
+<div id="conclusions" style="margin-top:-60px;height:60px"></div>
+<h1>Conclusions</h1>
+
+<p>Our system fully met our goal of providing a relatively low-cost, high-density sensor array. It is
+robust in that the user is able to selectively disable sensors that are broken or unnecessary to save
+power and time. Initial testing showed varying degrees of correlation between sensor channels. With this
+system, it should be possible to quickly characterize certain thought patterns over a large spatial extent.</p>
+
+<p>If we were to continue this project, there are several things we would want to alter. The first change
+would be to order more spare parts. Because this system has such a large hardware build, losing parts is
+inevitable. Luckily we did not run into much trouble in this area, but it’s far better to be prepared
+in case we would have. On the note of components, we used surface mount parts exclusive for resistors
+and capacitors. This was done to save space and money. However, in the end, we had enough space and money
+left over but did not realize how difficult soldering that number of components would be. Using sockets
+for our ICs would have prevented the issue we encountered where a partly broken chip is nearly impossible
+to remove. Finally, given enough time and money, we would definitely implement the system with a printed
+circuit board and more specialized interconnects such as ribbon cables. This would cut down on the production
+time and potentially cost since if we ended up using a non-trivial amount of wires.</p>
+
+<h2>Intellectual Property Considerations</h2>
+<p>In our project, we used the <a href="http://code.google.com/p/java-simple-serial-connector/">Java Simple Serial Connector</a>
+library to implement UART communication. This library is licensed under the GNU Lesser General Public License. We have also released
+the entirety of our source code under the GNU GPL v3. A copy of the full license is provided in our source code repository.</p>
+
+<p>We did not reverse-engineer a design for this system. This system came about from what is known about the physical interactions
+between blood and certain wavelengths. While we did obtain numerous samples for prototyping and final construction of the system,
+we did not have to sign a non-disclosure agreement for them. We believe there may be patent opportunities for our project since most
+of the systems we came across used much more sophisticated (and expensive) lasers, data converters, and filters. We feel our project
+has great publishing opportunities since it allows for a large amount of data collection across a wide spatial range of the human
+cortex.</p>
+
+<h2>Applicable Standards</h2>
+
+<p>Our system had no standards to conform to since it is meant to be a flexible platform from which
+another system could be based on.</p>
+
+<h2>Ethical Considerations</h2>
+<p>
+Throughout the entire process of developing our project, we strived to maintain the highest degree of ethical integrity, as dictated by the <a href="http://www.ieee.org/about/corporate/governance/p7-8.html" target="_blank">IEEE code of ethics</a>. . We kept safety for ourselves and for others in mind at all times, by especially trying to minimize as much as possible any hazards related to our hardware (like exposed wires, sharp edges, and the temperature of the LED driver ICs). Before any testing was performed with any of the sub-systems connected to our test sensor (which we placed on our heads), we made sure that it was operating safely.
+</p><p>
+While constructing our project, we took appropriate precautions while dealing with potentially hazardous tools like soldering irons, drills, and Dremel tools, like wearing safety glasses and ensuring the materials being worked on were securely held in place.
+</p><p>
+While designing the mechanical parts of our system, we worked to ensure that our system would be able fit as many different kinds of people as possible.
+</p><p>
+We have attempted to give due credit to all those helped in the construction and design elements of our project, and we are releasing the entirety of the source code for our project under the GNU GPL with the hopes that it might be of use to anyone else attempting to construct a similar system.
+</p>
+<h2>Legal Considerations</h2>
+<p>Our project does not use or produce wireless communication so we are not in violation of any FCC legal regulations.
+Our system is not intended for medical use. Therefore, we are not in violation of any medical device regulations.</p>
+
+<hr/>
+<h1>Appendix</h1>
+<h2>Comment Code Listing</h2>
+Our fully commented code for both the ATMega and the Java GUI are in our <a href="http://code.google.com/p/ece4760-pmd68-mab448/">google code repository</a>, and are provided as free software under the
+terms of the <a href="http://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3</a>.
+<h2>Full Schematic</h2>
+<div style="text-align:center">
+<!--<img src="amp_schem.png" style="width:400px;margin:10px"/>-->
+<a href="schematic.png"><img src="schematic.png" style="width:800px"></a>
+</div>
+<h2>Cost Details</h2>
+<table style="margin:3px auto;text-align:right">
+ <thead style="font-weight:bold;text-align:center"><td>Part</td><td>Source</td><td>Unit Price</td><td>Quantity</td><td>Total Price</td></thead>
+<tr><td style="text-align:center">ATMega 644</td><td style="text-align:center">ECE 4760 Lab</td><td>6.00</td><td>1</td><td>$6.00</td></tr>
+<tr><td style="text-align:center">ATMega 644 Custom PCB</td><td style="text-align:center">ECE 4760 Lab</td><td>4.00</td><td>1</td><td>$4.00</td></tr>
+<tr><td style="text-align:center">4.7 kOhm Resistor</td><td style="text-align:center">Digkey (311-47KARCT-ND)</td><td>0.017</td><td>40</td><td>$0.68</td></tr>
+<tr><td style="text-align:center">1 MOhm Resistor</td><td style="text-align:center">Digikey (311-1.0MARCT-ND)</td><td>0.017</td><td>40</td><td>$0.68</td></tr>
+<tr><td style="text-align:center">3.65 kOhm Resistor</td><td style="text-align:center">Digikey (311-3.65KCRCT-ND)</td><td>0.019</td><td>40</td><td>$0.76</td></tr>
+<tr><td style="text-align:center">200 Ohm Resistor</td><td style="text-align:center">Digikey (311-200ARCT-ND)</td><td>0.017</td><td>40</td><td>$0.68</td></tr>
+<tr><td style="text-align:center">300 kOhm Resistor</td><td style="text-align:center">Digikey (311-300KARCT-ND)</td><td>0.0077</td><td>110</td><td>$0.85</td></tr>
+<tr><td style="text-align:center">100 kOhm Resistor</td><td style="text-align:center">Digikey (311-100KARCT-ND)</td><td>0.017</td><td>40</td><td>$0.68</td></tr>
+<tr><td style="text-align:center">NPN Transistor (2N3904)</td><td style="text-align:center">Digikey (2N3904TFCT-ND)</td><td>0.1584</td><td>36</td><td>$5.70</td></tr>
+<tr><td style="text-align:center">IR LED</td><td style="text-align:center">Digikey (160-1029-ND)</td><td>0.392</td><td>36</td><td>$14.11</td></tr>
+<tr><td style="text-align:center">IR Phototransistor</td><td style="text-align:center">Digikey (160-1030-ND)</td><td>0.30</td><td>36</td><td>$10.80</td></tr>
+<tr><td style="text-align:center">787 Ohm Resistor</td><td style="text-align:center">Digikey (311-787CRCT-ND)</td><td>0.02</td><td>5</td><td>$0.10</td></tr>
+<tr><td style="text-align:center">100 Microfarad Capacitor</td><td style="text-align:center">Digikey (338-1787-1-ND)</td><td>0.1293</td><td>110</td><td>$14.22</td></tr>
+<tr><td style="text-align:center">0.1 Microfarad Capacitor</td><td style="text-align:center">Digikey (311-1361-1-ND)</td><td>0.031</td><td>20</td><td>$0.62</td></tr>
+<tr><td style="text-align:center">TLC1542 ADC</td><td style="text-align:center">Texas Instruments</td><td>Free (1)</td><td>4</td><td>$0.00</td></tr>
+<tr><td style="text-align:center">TLC5940 LED Driver</td><td style="text-align:center">Texas Instruments</td><td>Free (1)</td><td>3</td><td>$0.00</td></tr>
+<tr><td style="text-align:center">TLC2274 Quad Op-Amp</td><td style="text-align:center">Texas Instruments</td><td>Free (1)</td><td>9</td><td>$0.00</td></tr>
+<tr><td style="text-align:center">Wooden Box</td><td style="text-align:center">N/A</td><td>Free (2)</td><td>1</td><td>$0.00</td></tr>
+<tr><td style="text-align:center">PVC Tubing</td><td style="text-align:center">N/A</td><td>Free (2)</td><td>1</td><td>$0.00</td></tr>
+<tr><td style="text-align:center">Solder Boards</td><td style="text-align:center">N/A</td><td>Free (3)</td><td>1</td><td>$0.00</td></tr>
+<tr><td style="text-align:center">Extruded PVC</td><td style="text-align:center">N/A</td><td>Free (2)</td><td>1</td><td>$0.00</td></tr>
+<tr><td></td><td></td><td></td><td>Total:</td><td>$59.88</td></tr>
+</table>
+<ol>
+<li>Product Sampled from Texas Instruments</li>
+<li>Salvaged/Scrap</li>
+<li>Previously Owned</li>
+</ol>
+
+<h2>Task Distribution</h2>
+<table style="text-align:center;margin:3px auto;width:400px">
+<thead style="font-weight:bold"><td></td><td>Patrick</td><td>Mark</td><td>Both</td></thead>
+<tr><td>Amplifier Design</td><td></td><td></td><td>X</td></tr>
+<tr><td>Array Construction</td><td></td><td>X</td><td></td></tr>
+<tr><td>Amplifier Construction</td><td>X</td><td></td><td></td></tr>
+<tr><td>PVC Frame Construction</td><td></td><td>X</td><td></td></tr>
+<tr><td>System Wiring</td><td></td><td></td><td>X</td></tr>
+<tr><td>GUI Software</td><td>X</td><td></td><td></td></tr>
+<tr><td>ATMega Software</td><td></td><td></td><td>X</td></tr>
+<tr><td>Website Design</td><td>X</td><td></td><td></td></tr>
+</table>
+
+<h2>References Used</h2>
+<a href="http://iopscience.iop.org/1741-2552/4/3/007" target="_blank">Shirley M Coyle's 2007 paper</a>
+
+<h3>Re-used Code</h3>
+<a href="http://code.google.com/p/java-simple-serial-connector/">Java Simple Serial Connector</a> - The open source library we used to access serial communication ports from a Java environment
+<h3>Datasheets</h3>
+<ul>
+<li><a href="http://www.atmel.com/Images/doc2593.pdf">ATMega 644</a></li>
+<li><a href="http://www.ti.com/lit/ds/symlink/tlc1543.pdf" target="_blank">TLC1543 Analog to Digital Converter</a></li>
+<li><a href="http://www.ti.com/lit/ds/symlink/tlc2274.pdf" target="_blank">TLC2274 Quad Op-Amp</a></li>
+<li><a href="http://www.ti.com/lit/ds/symlink/tlc5940.pdf" target="_blank">TLC5940 LED Driver</a></li>
+<li><a href="http://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTR-4206E.pdf" target="_blank">NPN IR Phototransistor</a></li>
+<li><a href="http://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTE-4208.pdf" target="_blank">IR LED</a></li>
+</ul>
+
+<h3>Vendor Sites</h3>
+<ul>
+<li><a href="http://www.ti.com" target="_blank">Texas Instruments</a></li>
+<li><a href="http://www.digikey.com" target="_blank">DigiKey</a></li>
+</ul>
+
+<h2>Acknowledgements</h2>
+<p>We would like to thank Bruce Land for his guidance on the ideas behind this project.</p>
+<p>We would also like to thank Markus Burkardt, Chris Peratrovich, Kevin Fuhr, Mike Mahoney, and Andre Vazquez for their assistance in the mechanical
+construction elements of our project, and Sokolov Alexey for the use of his jSSC (Java Simple Serial Connector) serial library.</p>
 
 		</div>
 	</div>
 	<div id="footer">
 		<hr/>
-		&copy; Patrick Dear, Mark Bunney 2012
+		&copy; 2012 Patrick Dear, Mark Bunney
 	</div>
 </div>
 </body>
