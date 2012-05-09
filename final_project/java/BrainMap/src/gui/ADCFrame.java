@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.GeneralPath;
+import java.awt.image.BufferStrategy;
 
 
 import main.BrainMapConstants;
@@ -85,6 +86,7 @@ public class ADCFrame extends JFrame {
 	private class ValuePanel extends JPanel {
 		final int channel_no;
 		public JLabel label;
+
 		public ValuePanel(int ch) {
 			this.channel_no = ch;
 			this.setLayout(new GridBagLayout());
@@ -92,8 +94,8 @@ public class ADCFrame extends JFrame {
 			//channel_data_panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			GridBagConstraints panel_gbc = new GridBagConstraints();
 			final JCheckBox checkBox = new JCheckBox("", false);
-			checkBox.setSelected(true);
-			plot_area.setChannelVisible(channel_no,true);
+			//checkBox.setSelected(true);
+			//plot_area.setChannelVisible(channel_no,true);
 			checkBox.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent actionEvent) {
@@ -124,6 +126,7 @@ public class ADCFrame extends JFrame {
 		private float[][] dispData;
 		private boolean[] is_visible;
 		private int[] indexes;
+		private BufferStrategy bs;
 
 		private static final float POINTER_SIZE = 10f;
 
@@ -137,6 +140,25 @@ public class ADCFrame extends JFrame {
 			dispData = new float[BrainMapConstants.CHANNELS_PER_ADC][x_len];
 			is_visible = new boolean[BrainMapConstants.CHANNELS_PER_ADC];
 			indexes = new int[BrainMapConstants.CHANNELS_PER_ADC];
+			try {
+				//initializing a front and back buffer, both with hardware
+				// acceleration when possible.
+				this.createBufferStrategy(2, new BufferCapabilities(
+						new ImageCapabilities(true), new ImageCapabilities(true), null));
+				//and save the buffer strategy for later use
+				bs = this.getBufferStrategy();
+			} catch (Exception e) {
+				System.err.println("[ADCFrame] Double buffering not setup, prepare for flickering!");
+			}
+			if (bs != null) {
+				new Timer(30, new ActionListener() {
+					public void actionPerformed(ActionEvent ae) {
+						paint((Graphics2D)bs.getDrawGraphics());
+					}
+				}).start();
+
+				this.setIgnoreRepaint(true);
+			}
 		}
 
 		@Override
@@ -188,7 +210,7 @@ public class ADCFrame extends JFrame {
 					if (index < 0) {
 						index = dispData.length - 1;
 					}
-					g2.fill(new Ellipse2D.Float(x_inc*index+y0 - POINTER_SIZE/2,y_scale * dispData[channel][index] + x0-POINTER_SIZE/2,POINTER_SIZE,POINTER_SIZE));
+					g2.fill(new Ellipse2D.Float(x_inc * index + y0 - POINTER_SIZE / 2, y_scale * dispData[channel][index] + x0 - POINTER_SIZE / 2, POINTER_SIZE, POINTER_SIZE));
 				}
 			}
 		}
